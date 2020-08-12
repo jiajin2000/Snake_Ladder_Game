@@ -61,7 +61,7 @@ public class Snake_ladder_game {
     public static void main(String[] args) {
         // TODO code application logic here
          new Snake_ladder_game();
-       //System.out.println("HI");
+       //System.out.println("HI");  `
         
     }
     

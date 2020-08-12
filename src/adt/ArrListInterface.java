@@ -9,7 +9,7 @@ package adt;
  *
  * @author kengboongoh
  */
-public interface playerArrListInterface<T> {
+public interface ArrListInterface<T> {
     
       public boolean add(T newEntry);
 
@@ -73,7 +73,7 @@ public interface playerArrListInterface<T> {
    * @param anEntry the object that is the desired entry
    * @return true if the list contains anEntry, or false if not
    */
-  public boolean contains(T anEntry);
+  public boolean contains(T item);
 
   /**
    * Task: Gets the number of entries in the list.
@@ -95,5 +95,11 @@ public interface playerArrListInterface<T> {
    * @return true if the list is full, or false if not
    */
   public boolean isFull();
+
+  public int size();
+
+  public T get(int i);
+
+  public int find(T item);
     
 }

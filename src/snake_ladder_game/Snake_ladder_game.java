@@ -1,7 +1,7 @@
 package snake_ladder_game;
 import entity.Player;
-import adt.PlayerArrList;
-import adt.playerArrListInterface;
+import adt.ArrList;
+import adt.ArrListInterface;
 import java.util.*;
 /**
  *
@@ -13,12 +13,12 @@ public class Snake_ladder_game {
      * @param args the command line arguments
      */
   static Scanner scan = new Scanner(System.in);
-  private playerArrListInterface<Player> playerList;
+  private ArrListInterface<Player> playerList;
   
    
   public Snake_ladder_game(){
       
-    playerList = new PlayerArrList<>();
+    playerList = new ArrList<>();
     addPlayer();
     System.out.println("");
     System.out.println("Player Successfully Registered !");

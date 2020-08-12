@@ -7,17 +7,18 @@ import java.util.NoSuchElementException;
  *
  * @author kengboongoh
  */
-public class PlayerArrList<T> implements playerArrListInterface<T> {
+public class ArrList<T> implements ArrListInterface<T> {
     
   private T[] array;
   private int length;
-  private static final int DEFAULT_CAPACITY = 4;
+  private static int DEFAULT_ERROR_CODE =-1;
+  private static final int DEFAULT_CAPACITY = 15;
 
-  public PlayerArrList() {
+  public ArrList() {
     this(DEFAULT_CAPACITY);
   }
 
-  public PlayerArrList(int initialCapacity) {
+  public ArrList(int initialCapacity) {
     length = 0;
     // the cast is safe because the new array contains null entries
     @SuppressWarnings("unchecked")
@@ -89,10 +90,10 @@ public class PlayerArrList<T> implements playerArrListInterface<T> {
     return result;
   }
 
-  public boolean contains(T anEntry) {
+  public boolean contains(T item) {
     boolean found = false;
     for (int index = 0; !found && (index < length); index++) {
-      if (anEntry.equals(array[index])) {
+      if (item.equals(array[index])) {
         found = true;
       }
     }
@@ -112,17 +113,39 @@ public class PlayerArrList<T> implements playerArrListInterface<T> {
     return false;
   }
 
-  public String toString() {
-    String outputStr = "";
-    for (int index = 0; index < length; ++index) {
-      outputStr += array[index] + "\n";
-    }
-
-    return outputStr;
-  }
-
   private boolean isArrayFull() {
     return length == array.length;
+  }
+  
+  public int size() {
+    return length;
+  }
+  
+  public T get(int index) throws IndexOutOfBoundsException{
+      
+  if(index<0 || index>=this.length) throw new IndexOutOfBoundsException();
+  return array[index];
+  
+  }
+  
+  public String toString() {
+    String output = "";
+    for (int index = 0; index < length; ++index) {
+      output += array[index] + "\n";
+    }
+
+    return output;
+  }
+  
+  public int find(T item){
+  int returnIndex = DEFAULT_ERROR_CODE;
+  for(int i=0;i<this.length;i++){
+  if(array[i].equals(item)){
+	returnIndex = i;
+	break;
+  }
+  }
+  return returnIndex;
   }
 
   /**

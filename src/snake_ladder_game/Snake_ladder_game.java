@@ -9,6 +9,7 @@ import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
 import adt.CircularArrQueueInterface;
 import java.util.*;
+import java.util.Random;
 /**
  *
  * @author kengboongoh
@@ -70,5 +71,13 @@ public class Snake_ladder_game {
        //System.out.println("HI");  `
         
     }
-    
+
+
+public class dice {
+    public static int getRandomNumber(int seed) { 
+	   Random randomGenerator; 
+	   randomGenerator = new Random(); 
+	   return randomGenerator.nextInt(seed) + 1; 
+   } 
+}
 }

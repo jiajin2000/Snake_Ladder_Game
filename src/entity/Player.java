@@ -14,8 +14,8 @@ public class Player {
   private static int nextNumber = 1;
   private String name;
   private int number;
-  private int currentPosition;
-   private int stepNumber;
+  private int currentPosition = 1;
+  private int stepNumber;
 
   public Player(int number) {
     this.number = number;

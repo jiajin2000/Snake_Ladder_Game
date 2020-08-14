@@ -27,9 +27,7 @@ public class Add_Player {
      
     String line = "================================";  
     playerList = new ArrList<>();
-    leaderboardList = new DoublyLinkedList<>();
-    Iterator<Leaderboard> display =leaderboardList.getIterator();
-      
+   
     // Hardcoded data for testing purposes only
     int option;
     System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
@@ -50,7 +48,7 @@ public class Add_Player {
          System.out.print("Please Enter Player " + i + "'s Name  :");
          String name = scan.nextLine();
          playerList.add(new Player(name));
-         leaderboardList.add(new Leaderboard(name, 0));
+      
         
     }
     //playerList.add(new Player("Jen Tat"));

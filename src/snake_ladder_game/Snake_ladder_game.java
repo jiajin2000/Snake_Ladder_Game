@@ -26,20 +26,7 @@ public class Snake_ladder_game {
   public static BinarySearchTree startTree = new BinarySearchTree();
   public static BinarySearchTree endTree = new BinarySearchTree();
    
-  public Snake_ladder_game(){
-    String line = "================================";  
-    playerList = new ArrList<>();
-    leaderboardList = new DoublyLinkedList<>();
-    Iterator<Leaderboard> display = leaderboardList.getIterator();
-    Add_Player.addPlayer();
-    
-    Add_Snake_Ladder.SorLTree();
-    //Add_Snake_Ladder.checkSorL();
-    //Board_Layout.Board_Layout();
-    //Sort_Ranking.ranking();
-   // Queue_Player.queuePlayer();
-   
-  }
+
  
   
   public static void queuePlayer(){
@@ -50,9 +37,21 @@ public class Snake_ladder_game {
 }
   
     public static void main(String[] args) {
-        // TODO code application logic here
-         new Snake_ladder_game();
-       //System.out.println("HI");  `
+       
+        String line = "================================";  
+        leaderboardList = new DoublyLinkedList<>();
+        Iterator<Leaderboard> display = leaderboardList.getIterator();
+        playerList = new ArrList<>();
+
+        Add_Player.addPlayer();
+
+        Add_Snake_Ladder.SorLTree();
+        //Add_Snake_Ladder.checkSorL();
+        Board_Layout.Board_Layout();
+        //Sort_Ranking.ranking();
+        //Queue_Player.queuePlayer();
+        
+        Sort_Ranking.createLeaderBoard();
         
     }
 

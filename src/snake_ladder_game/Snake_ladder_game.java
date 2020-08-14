@@ -16,6 +16,7 @@ public class Snake_ladder_game {
      */
   static Scanner scan = new Scanner(System.in);
   private ArrListInterface<Player> playerList;
+  CircularArrQueueInterface<String> playerQueue;
   
    
   public Snake_ladder_game(){
@@ -26,11 +27,9 @@ public class Snake_ladder_game {
     System.out.println("Player Successfully Registered !");
     System.out.println("================================");
     System.out.println(playerList.toString());
-    
-    for(int i=0; i<playerList.size();i++){
-        System.out.println(playerList.get(i).getPlayerName());
-    }
     //System.out.println(PlayerArrList.toString());
+    playerQueue = new CircularArrQueue<>();
+    queuePlayer();
     
   }
   
@@ -63,6 +62,13 @@ public class Snake_ladder_game {
     //playerList.add(new Player("Chia Ter"));
     
   }
+  
+  private void queuePlayer(){
+     for(int i=0; i<playerList.size();i++){
+        playerQueue.enqueue(playerList.get(i).getPlayerName());
+    }
+     System.out.println(playerQueue.toString());
+}
   
     public static void main(String[] args) {
         // TODO code application logic here

@@ -2,6 +2,9 @@ package snake_ladder_game;
 import entity.Player;
 import adt.ArrList;
 import adt.ArrListInterface;
+import adt.DoublyLinkedList;
+import adt.DoublyLinkedListInterface;
+import entity.Leaderboard;
 import java.util.*;
 /**
  *
@@ -14,18 +17,27 @@ public class Snake_ladder_game {
      */
   static Scanner scan = new Scanner(System.in);
   private ArrListInterface<Player> playerList;
-  
+  private DoublyLinkedListInterface<Leaderboard> leaderboardList;
    
   public Snake_ladder_game(){
-      
+    String line = "================================";  
     playerList = new ArrList<>();
+    leaderboardList = new DoublyLinkedList<>();
+    Iterator<Leaderboard> display = leaderboardList.getIterator();
     addPlayer();
+    
     System.out.println("");
-    System.out.println("Player Successfully Registered !");
-    System.out.println("================================");
+    System.out.println("Player Successfully Registered !\n" + line);
     System.out.println(playerList.toString());
     //System.out.println(PlayerArrList.toString());
     
+    System.out.println(line + "\n\t  Leaderboard\n" + line);
+    System.out.println(leaderboardList.toString());
+    System.out.println(leaderboardList.getNth(0).getId() + "  is leading!!");
+    
+    
+    //leaderboardList.remove(new Leaderboard("p1"));
+    //System.out.println(leaderboardList.toString());
   }
   
   
@@ -51,11 +63,29 @@ public class Snake_ladder_game {
          System.out.print("Please Enter Player " + i + "'s Name  :");
          String name = scan.nextLine();
          playerList.add(new Player(name));
+         leaderboardList.add(new Leaderboard(name, 0));
         
     }
     //playerList.add(new Player("Jen Tat"));
     //playerList.add(new Player("Chia Ter"));
     
+  }
+  
+  private void ranking(){
+      for(int i = 0; i < playerList.getLength();i++){
+        int count = 1;
+        String id = playerList.get(i).getPlayerName();
+        int score = playerList.get(i).getCurrentPosition();
+        
+       // leaderboardList.add(new Leaderboard(id, score));
+        
+        System.out.print("No"+ count + "\t");
+        count++;
+        //String haha = leaderboardList.getNth(i).getId();
+        //int ok = leaderboardList.getNth(i).getScore();    
+        //System.out.println(haha);
+    }
+      System.out.println(leaderboardList.toString());
   }
   
     public static void main(String[] args) {

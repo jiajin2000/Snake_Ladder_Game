@@ -39,6 +39,7 @@ public class Snake_ladder_game {
 
         Add_Snake_Ladder.SorLTree();
         //Add_Snake_Ladder.checkSorL();
+        //playerList.get(1).setCurrentPosition(4);
         Board_Layout.Board_Layout();
         //Sort_Ranking.ranking();
         //Queue_Player.queuePlayer();
@@ -46,10 +47,24 @@ public class Snake_ladder_game {
         Sort_Ranking.createLeaderBoard();
         
         Queue_Player.queuePlayer();
+       
+        while(!leaderboardList.getNth(0).isIsWinner()){
         
-        Queue_Player.round();
-        Roll_Dice.rollDice();
+
+            Queue_Player.round();
+           
+            
+            Board_Layout.Board_Layout();
+            
+            Sort_Ranking.ranking();
+ 
+            Queue_Player.turnRound();
         
+        }
+      
+        
+        //Board_Layout.displayBoard100();
+
     }
 
 }

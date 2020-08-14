@@ -23,42 +23,10 @@ public class ArrList<T> implements ArrListInterface<T> {
     array =  (T[]) new Object[capacity];
   }
 
-  public boolean add(T newEntry) {
-    array[length] = newEntry;
+  public boolean add(T newItem) {
+    array[length] = newItem;
     length++;
     return true;
-  }
-
-  public boolean set(int index, T newItem) {
-    boolean isSuccessful = true;
-
-    if ((index >= 1) && (index <= length + 1)) {
-      if (!isArrayFull()) {
-        makeRoom(index);
-        array[index - 1] = newItem;
-        length++;
-      }
-    } else {
-      isSuccessful = false;
-    }
-
-    return isSuccessful;
-  }
-
-  public T remove(int index) {
-    T result = null;
-
-    if ((index >= 1) && (index <= length)) {
-      result = array[index - 1];
-
-      if (index < length) {
-        removeGap(index);
-      }
-
-      length--;
-    }
-
-    return result;
   }
 
   public void clear() {
@@ -123,24 +91,6 @@ public class ArrList<T> implements ArrListInterface<T> {
   return returnIndex;
   }
 
-
-  private void makeRoom(int newPosition) {
-    int newIndex = newPosition - 1;
-    int lastIndex = length - 1;
-
-    for (int index = lastIndex; index >= newIndex; index--) {
-      array[index + 1] = array[index];
-    }
-  }
-
-  private void removeGap(int givenPosition) {
-    int removedIndex = givenPosition - 1;
-    int lastIndex = length - 1;
-
-    for (int index = removedIndex; index < lastIndex; index++) {
-      array[index] = array[index + 1];
-    }
-  }
   
     public String toString() {
     String output = "";

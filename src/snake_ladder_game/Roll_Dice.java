@@ -21,7 +21,7 @@ public class Roll_Dice {
       static Scanner scan = new Scanner(System.in);
       static int countRollTime=1;
       
-    public static void rollDice(){
+    public static int rollDice(){
         int totalStep =0;
         
         do{
@@ -38,6 +38,8 @@ public class Roll_Dice {
            
       }while (diceNum.getDice()==6);
       System.out.println("Your total step is:"+totalStep);
+      
+      return totalStep;
     }
     
     public static void main(String[] args) {

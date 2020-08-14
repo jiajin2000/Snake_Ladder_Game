@@ -42,8 +42,16 @@ public class Roll_Dice {
     
     public static void main(String[] args) {
       char selection;
+      char opinion;
+      do{
+      System.out.println("Do you want roll the dice?(Y = yes): ");
+      opinion = scan.next().charAt(0);
+      if(Character.toUpperCase(opinion)!='Y'){
+         System.out.println("Invalid ! Please try again.");
+         System.out.println("");
+     }
+      }while(Character.toUpperCase(opinion)!='Y');
       rollDice();
-      
       do{
          
     System.out.print("Do you want reroll again? (Y = yes N = No): ");
@@ -66,5 +74,4 @@ public class Roll_Dice {
             dice.push(diceNum.getDice());
         }
 }
-    
 }

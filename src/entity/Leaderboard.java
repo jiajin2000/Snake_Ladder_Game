@@ -8,6 +8,7 @@ package entity;
 import adt.DoublyLinkedList;
 import adt.DoublyLinkedListInterface;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Leaderboard implements Comparable <Leaderboard> {
 
     public Leaderboard(String id) {
         this.id = id;
-            this.score = 0;
+        this.score = 0;
     }
     
     public Leaderboard(String id, int score) {
@@ -48,6 +49,30 @@ public class Leaderboard implements Comparable <Leaderboard> {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Leaderboard other = (Leaderboard) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

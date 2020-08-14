@@ -3,6 +3,7 @@ import entity.Player;
 import adt.ArrList;
 import adt.CircularArrQueue;
 import adt.ArrListInterface;
+import adt.BinarySearchTree;
 import adt.DoublyLinkedList;
 import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
@@ -18,65 +19,28 @@ public class Snake_ladder_game {
      * @param args the command line arguments
      */
   static Scanner scan = new Scanner(System.in);
-  private ArrListInterface<Player> playerList;
-  private DoublyLinkedListInterface<Leaderboard> leaderboardList;
-  private CircularArrQueueInterface<String> playerQueue;
+  public static ArrListInterface<Player> playerList;
+  public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
+  public static CircularArrQueueInterface<String> playerQueue;
+  public static BinarySearchTree startTree = new BinarySearchTree();
+  public static BinarySearchTree endTree = new BinarySearchTree();
    
   public Snake_ladder_game(){
     String line = "================================";  
     playerList = new ArrList<>();
     leaderboardList = new DoublyLinkedList<>();
     Iterator<Leaderboard> display = leaderboardList.getIterator();
-    addPlayer();
+    Add_Player.addPlayer();
     
-    System.out.println("");
-    System.out.println("Player Successfully Registered !\n" + line);
-    System.out.println(playerList.toString());
-    //System.out.println(PlayerArrList.toString());
-    playerQueue = new CircularArrQueue<>();
-    queuePlayer();
+    Add_Snake_Ladder.SorLTree();
+    Add_Snake_Ladder.checkSorL();
     
-    System.out.println(line + "\n\t  Leaderboard\n" + line);
-    System.out.println(leaderboardList.toString());
-    System.out.println(leaderboardList.getNth(0).getId() + "  is leading!!");
-    
-    
-    //leaderboardList.remove(new Leaderboard("p1"));
-    //System.out.println(leaderboardList.toString());
+    //Sort_Ranking.ranking();
+   // Queue_Player.queuePlayer();
+   
   }
   
-  
-  private void addPlayer() {
-      
-    // Hardcoded data for testing purposes only
-    int option;
-    System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-    option = scan.nextInt();
-    
-     while(option < 2 || option > 4 ){
-         
-            System.out.println("Invalid Entry of Number of Player !");
-            System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-            option = scan.nextInt();
-            System.out.println("");
-        }
-     
-     
-    String clear = scan.nextLine();
-    for (int i = 1; i <= option; i++) {
-         
-         System.out.print("Please Enter Player " + i + "'s Name  :");
-         String name = scan.nextLine();
-         playerList.add(new Player(name));
-         leaderboardList.add(new Leaderboard(name, 0));
-        
-    }
-    //playerList.add(new Player("Jen Tat"));
-    //playerList.add(new Player("Chia Ter"));
-    
-  }
-  
-  private void ranking(){
+  public static void ranking(){
       for(int i = 0; i < playerList.size();i++){
         int count = 1;
         String id = playerList.get(i).getPlayerName();
@@ -93,7 +57,7 @@ public class Snake_ladder_game {
       System.out.println(leaderboardList.toString());
   }
   
-  private void queuePlayer(){
+  public static void queuePlayer(){
      for(int i=0; i<playerList.size();i++){
         playerQueue.enqueue(playerList.get(i).getPlayerName());
     }

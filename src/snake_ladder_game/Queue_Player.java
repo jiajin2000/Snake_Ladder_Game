@@ -17,9 +17,13 @@ public class Queue_Player {
     public static void queuePlayer(){
         
      for(int i=0; i<playerList.size();i++){
-        playerQueue.enqueue(playerList.get(i).getPlayerName());
+        playerQueue.enqueue(playerList.get(i));
     }
      System.out.println(playerQueue.toString());
 }
+    public static void round(){
+        System.out.println(playerQueue.getFront().getPlayerName());
+        System.out.println("");
+    }
     
 }

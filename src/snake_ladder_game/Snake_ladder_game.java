@@ -22,7 +22,7 @@ public class Snake_ladder_game {
   static Scanner scan = new Scanner(System.in);
   public static ArrListInterface<Player> playerList;
   public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
-  public static CircularArrQueueInterface<String> playerQueue;
+  public static CircularArrQueueInterface<Player> playerQueue;
   public static BinarySearchTree startTree = new BinarySearchTree();
   public static BinarySearchTree endTree = new BinarySearchTree();
    
@@ -47,6 +47,7 @@ public class Snake_ladder_game {
         
         Queue_Player.queuePlayer();
         
+        Queue_Player.round();
         Roll_Dice.rollDice();
         
     }

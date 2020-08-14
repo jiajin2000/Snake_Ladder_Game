@@ -38,6 +38,7 @@ public class Sort_Ranking {
     public static void createLeaderBoard(){
         
       String line = "================================";  
+      String line2 = "--------------------------------";
       
     for(int i = 0; i < playerList.size();i++){
        
@@ -49,6 +50,9 @@ public class Sort_Ranking {
     }
     
      System.out.println(line + "\n\t  Leaderboard\n" + line);
+     String layout = String.format("%-5s %-20s %-5s","Rank","Player","Score");
+     System.out.println(layout);
+     System.out.println(line2);
      System.out.println(leaderboardList.toString());
     
         

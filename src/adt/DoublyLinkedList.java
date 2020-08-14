@@ -150,7 +150,7 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
     int rank = 1;
         Node currentNode = firstNode;
         while(currentNode != null){
-            output += String.format("%d. %s",rank,currentNode.data);
+            output += String.format("%d    %s",rank,currentNode.data);
            
             currentNode = currentNode.next;
             rank++;

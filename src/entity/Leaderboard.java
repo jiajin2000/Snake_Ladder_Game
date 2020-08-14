@@ -92,7 +92,7 @@ public class Leaderboard implements Comparable <Leaderboard> {
     
     @Override
     public String toString(){
-        return String.format(" Player : %-20s Score : %-10d\n" , id, score);
+        return String.format(" %-20s %-5d\n" , id, score);
     }
     
     

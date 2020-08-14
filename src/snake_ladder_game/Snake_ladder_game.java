@@ -1,7 +1,9 @@
 package snake_ladder_game;
 import entity.Player;
 import adt.ArrList;
+import adt.CircularArrQueue;
 import adt.ArrListInterface;
+import adt.CircularArrQueueInterface;
 import java.util.*;
 /**
  *
@@ -24,6 +26,10 @@ public class Snake_ladder_game {
     System.out.println("Player Successfully Registered !");
     System.out.println("================================");
     System.out.println(playerList.toString());
+    
+    for(int i=0; i<playerList.size();i++){
+        System.out.println(playerList.get(i).getPlayerName());
+    }
     //System.out.println(PlayerArrList.toString());
     
   }
@@ -61,7 +67,7 @@ public class Snake_ladder_game {
     public static void main(String[] args) {
         // TODO code application logic here
          new Snake_ladder_game();
-       //System.out.println("HI");
+       //System.out.println("HI");  `
         
     }
     

@@ -1,10 +1,12 @@
 package snake_ladder_game;
 import entity.Player;
 import adt.ArrList;
+import adt.CircularArrQueue;
 import adt.ArrListInterface;
 import adt.DoublyLinkedList;
 import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
+import adt.CircularArrQueueInterface;
 import java.util.*;
 /**
  *
@@ -18,6 +20,7 @@ public class Snake_ladder_game {
   static Scanner scan = new Scanner(System.in);
   private ArrListInterface<Player> playerList;
   private DoublyLinkedListInterface<Leaderboard> leaderboardList;
+  private CircularArrQueueInterface<String> playerQueue;
    
   public Snake_ladder_game(){
     String line = "================================";  
@@ -30,6 +33,8 @@ public class Snake_ladder_game {
     System.out.println("Player Successfully Registered !\n" + line);
     System.out.println(playerList.toString());
     //System.out.println(PlayerArrList.toString());
+    playerQueue = new CircularArrQueue<>();
+    queuePlayer();
     
     System.out.println(line + "\n\t  Leaderboard\n" + line);
     System.out.println(leaderboardList.toString());
@@ -72,7 +77,7 @@ public class Snake_ladder_game {
   }
   
   private void ranking(){
-      for(int i = 0; i < playerList.getLength();i++){
+      for(int i = 0; i < playerList.size();i++){
         int count = 1;
         String id = playerList.get(i).getPlayerName();
         int score = playerList.get(i).getCurrentPosition();
@@ -88,10 +93,17 @@ public class Snake_ladder_game {
       System.out.println(leaderboardList.toString());
   }
   
+  private void queuePlayer(){
+     for(int i=0; i<playerList.size();i++){
+        playerQueue.enqueue(playerList.get(i).getPlayerName());
+    }
+     System.out.println(playerQueue.toString());
+}
+  
     public static void main(String[] args) {
         // TODO code application logic here
          new Snake_ladder_game();
-       //System.out.println("HI");
+       //System.out.println("HI");  `
         
     }
     

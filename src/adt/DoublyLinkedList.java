@@ -97,14 +97,7 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
 
     @Override
     public boolean contains(T anEntry) {
-        if(!isEmpty()){
-            Node currentNode = firstNode;
-            return search(currentNode,anEntry);
-        }
-        else{
-            return false;
-        }
-        
+        return search(firstNode,anEntry);     
     }
 
     @Override
@@ -119,17 +112,16 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
     
     //using recursive method to search the particular node.
     private boolean search(Node currentNode,T anEntry){
-        currentNode = firstNode;
-        System.out.println(currentNode.data);
-
-            if(anEntry.compareTo(currentNode.data)== 0){
+            
+        if(currentNode == null){
+            return false;
+        }    
+        else if(anEntry.equals(currentNode.data)){
                 return true;
-            }
-            else if(currentNode.next == null){
-                return false;
-            }
-               
-        return search(currentNode.next,anEntry);
+        }
+        else{
+            return search (currentNode.next,anEntry);  
+        }             
     }
     
     /**

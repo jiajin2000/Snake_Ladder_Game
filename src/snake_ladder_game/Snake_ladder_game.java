@@ -26,6 +26,10 @@ public class Snake_ladder_game {
     System.out.println("Player Successfully Registered !");
     System.out.println("================================");
     System.out.println(playerList.toString());
+    
+    for(int i=0; i<playerList.size();i++){
+        System.out.println(playerList.get(i).getPlayerName());
+    }
     //System.out.println(PlayerArrList.toString());
     
   }

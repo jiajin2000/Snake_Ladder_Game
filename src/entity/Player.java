@@ -15,7 +15,7 @@ public class Player {
   private String name;
   private int number;
   private int currentPosition;
-   private int stepNumber;
+  private int stepNumber;
 
   public Player(int number) {
     this.number = number;

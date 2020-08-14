@@ -15,11 +15,13 @@ import java.util.Scanner;
  * @author User
  */
 public class Roll_Dice {
-    private static LinkedStackInterface<Integer> dice = new LinkedStack<Integer>();
+    
+      private static LinkedStackInterface<Integer> dice = new LinkedStack<Integer>();
       static Dice diceNum = new Dice();
       static Scanner scan = new Scanner(System.in);
       static int countRollTime=1;
-    private static void rollDice(){
+      
+    public static void rollDice(){
         int totalStep =0;
         
         do{
@@ -64,4 +66,5 @@ public class Roll_Dice {
             dice.push(diceNum.getDice());
         }
 }
+    
 }

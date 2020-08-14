@@ -47,6 +47,8 @@ public class Snake_ladder_game {
         
         Queue_Player.queuePlayer();
         
+        Roll_Dice.rollDice();
+        
     }
 
 }

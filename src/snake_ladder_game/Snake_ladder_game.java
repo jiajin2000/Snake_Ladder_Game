@@ -72,12 +72,4 @@ public class Snake_ladder_game {
         
     }
 
-
-public class dice {
-    public static int getRandomNumber(int seed) { 
-	   Random randomGenerator; 
-	   randomGenerator = new Random(); 
-	   return randomGenerator.nextInt(seed) + 1; 
-   } 
-}
 }

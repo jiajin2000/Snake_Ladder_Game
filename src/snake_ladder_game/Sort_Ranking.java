@@ -51,7 +51,7 @@ public class Sort_Ranking {
      System.out.println(line + "\n\t  Leaderboard\n" + line);
      System.out.println(leaderboardList.toString());
     
-        
+     
         
     }
     

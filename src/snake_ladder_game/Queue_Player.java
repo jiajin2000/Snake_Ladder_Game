@@ -15,6 +15,7 @@ import static snake_ladder_game.Snake_ladder_game.playerQueue;
 public class Queue_Player {
     
     public static void queuePlayer(){
+        
      for(int i=0; i<playerList.size();i++){
         playerQueue.enqueue(playerList.get(i).getPlayerName());
     }

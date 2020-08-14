@@ -12,18 +12,15 @@ public class ArrList<T> implements ArrListInterface<T> {
   private T[] array;
   private int length;
   private static int DEFAULT_ERROR_CODE =-1;
-  private static final int DEFAULT_CAPACITY = 15;
+  private static final int DEFAULT_CAPACITY = 4;
 
   public ArrList() {
     this(DEFAULT_CAPACITY);
   }
 
-  public ArrList(int initialCapacity) {
+  public ArrList(int capacity) {
     length = 0;
-    // the cast is safe because the new array contains null entries
-    @SuppressWarnings("unchecked")
-    T[] tempList = (T[]) new Object[initialCapacity];
-    array = tempList;
+    array =  (T[]) new Object[capacity];
   }
 
   public boolean add(T newEntry) {
@@ -32,13 +29,13 @@ public class ArrList<T> implements ArrListInterface<T> {
     return true;
   }
 
-  public boolean add(int newPosition, T newEntry) {
+  public boolean set(int index, T newItem) {
     boolean isSuccessful = true;
 
-    if ((newPosition >= 1) && (newPosition <= length + 1)) {
+    if ((index >= 1) && (index <= length + 1)) {
       if (!isArrayFull()) {
-        makeRoom(newPosition);
-        array[newPosition - 1] = newEntry;
+        makeRoom(index);
+        array[index - 1] = newItem;
         length++;
       }
     } else {
@@ -48,14 +45,14 @@ public class ArrList<T> implements ArrListInterface<T> {
     return isSuccessful;
   }
 
-  public T remove(int givenPosition) {
+  public T remove(int index) {
     T result = null;
 
-    if ((givenPosition >= 1) && (givenPosition <= length)) {
-      result = array[givenPosition - 1];
+    if ((index >= 1) && (index <= length)) {
+      result = array[index - 1];
 
-      if (givenPosition < length) {
-        removeGap(givenPosition);
+      if (index < length) {
+        removeGap(index);
       }
 
       length--;
@@ -67,44 +64,7 @@ public class ArrList<T> implements ArrListInterface<T> {
   public void clear() {
     length = 0;
   }
-
-  public boolean replace(int givenPosition, T newEntry) {
-    boolean isSuccessful = true;
-
-    if ((givenPosition >= 1) && (givenPosition <= length)) {
-      array[givenPosition - 1] = newEntry;
-    } else {
-      isSuccessful = false;
-    }
-
-    return isSuccessful;
-  }
-
-  public T getEntry(int givenPosition) {
-    T result = null;
-
-    if ((givenPosition >= 1) && (givenPosition <= length)) {
-      result = array[givenPosition - 1];
-    }
-
-    return result;
-  }
-
-  public boolean contains(T item) {
-    boolean found = false;
-    for (int index = 0; !found && (index < length); index++) {
-      if (item.equals(array[index])) {
-        found = true;
-      }
-    }
-
-    return found;
-  }
-
-  public int getLength() {
-    return length;
-  }
-
+  
   public boolean isEmpty() {
     return length == 0;
   }
@@ -121,21 +81,36 @@ public class ArrList<T> implements ArrListInterface<T> {
     return length;
   }
   
-  public T get(int index) throws IndexOutOfBoundsException{
+  public T get(int index){
       
-  if(index<0 || index>=this.length) throw new IndexOutOfBoundsException();
+  if(index<0 || index>=this.length);
   return array[index];
   
   }
-  
-  public String toString() {
-    String output = "";
-    for (int index = 0; index < length; ++index) {
-      output += array[index] + "\n";
+
+  public boolean replace(int index, T newItem) {
+    boolean isSuccessful = true;
+
+    if ((index >= 1) && (index <= length)) {
+      array[index - 1] = newItem;
+    } else {
+      isSuccessful = false;
     }
 
-    return output;
+    return isSuccessful;
   }
+
+  public boolean contains(T item) {
+    boolean found = false;
+    for (int index = 0; !found && (index < length); index++) {
+      if (item.equals(array[index])) {
+        found = true;
+      }
+    }
+
+    return found;
+  }
+
   
   public int find(T item){
   int returnIndex = DEFAULT_ERROR_CODE;
@@ -148,11 +123,7 @@ public class ArrList<T> implements ArrListInterface<T> {
   return returnIndex;
   }
 
-  /**
-   * Task: Makes room for a new entry at newPosition. Precondition: 1 <=
-   * newPosition <= length + 1; length is array's
- length before addition.
-   */
+
   private void makeRoom(int newPosition) {
     int newIndex = newPosition - 1;
     int lastIndex = length - 1;
@@ -162,11 +133,6 @@ public class ArrList<T> implements ArrListInterface<T> {
     }
   }
 
-  /**
-   * Task: Shifts entries that are beyond the entry to be removed to the next
-   * lower position. Precondition: array is not empty; 1 <= givenPosition <
- length; length is array's length before removal.
-   */
   private void removeGap(int givenPosition) {
     int removedIndex = givenPosition - 1;
     int lastIndex = length - 1;
@@ -174,6 +140,15 @@ public class ArrList<T> implements ArrListInterface<T> {
     for (int index = removedIndex; index < lastIndex; index++) {
       array[index] = array[index + 1];
     }
+  }
+  
+    public String toString() {
+    String output = "";
+    for (int index = 0; index < length; ++index) {
+      output += array[index] + "\n";
+    }
+
+    return output;
   }
 
  

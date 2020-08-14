@@ -55,7 +55,7 @@ public class Snake_ladder_game {
          
          System.out.print("Please Enter Player " + i + "'s Name  :");
          String name = scan.nextLine();
-         playerList.add(new Player(name));
+         playerList.add(new Player(name)); 
         
     }
     //playerList.add(new Player("Jen Tat"));

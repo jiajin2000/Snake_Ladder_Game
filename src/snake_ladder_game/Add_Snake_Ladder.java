@@ -41,11 +41,11 @@ public class Add_Snake_Ladder {
      
     }
 
-    System.out.println("\nStartTree contains: ");
-    Add_Snake_Ladder.display(startTree);
+    //System.out.println("\nStartTree contains: ");
+    //Add_Snake_Ladder.display(startTree);
     
-    System.out.println("\nEndTree contains: ");
-    display(endTree);
+    //System.out.println("\nEndTree contains: ");
+    //display(endTree);
     
           
     }

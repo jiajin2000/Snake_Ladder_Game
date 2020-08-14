@@ -64,9 +64,9 @@ public class Add_Player {
      //playerQueue = new CircularArrQueue<>();
      //queuePlayer();
     
-     System.out.println(line + "\n\t  Leaderboard\n" + line);
-     System.out.println(leaderboardList.toString());
-     System.out.println(leaderboardList.getNth(0).getId() + "  is leading!!");
+     //System.out.println(line + "\n\t  Leaderboard\n" + line);
+     //System.out.println(leaderboardList.toString());
+     //System.out.println(leaderboardList.getNth(0).getId() + "  is leading!!");
   }
     
 }

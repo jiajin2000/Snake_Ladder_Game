@@ -34,29 +34,13 @@ public class Snake_ladder_game {
     Add_Player.addPlayer();
     
     Add_Snake_Ladder.SorLTree();
-    Add_Snake_Ladder.checkSorL();
-    
+    //Add_Snake_Ladder.checkSorL();
+    //Board_Layout.Board_Layout();
     //Sort_Ranking.ranking();
    // Queue_Player.queuePlayer();
    
   }
-  
-  public static void ranking(){
-      for(int i = 0; i < playerList.size();i++){
-        int count = 1;
-        String id = playerList.get(i).getPlayerName();
-        int score = playerList.get(i).getCurrentPosition();
-        
-       // leaderboardList.add(new Leaderboard(id, score));
-        
-        System.out.print("No"+ count + "\t");
-        count++;
-        //String haha = leaderboardList.getNth(i).getId();
-        //int ok = leaderboardList.getNth(i).getScore();    
-        //System.out.println(haha);
-    }
-      System.out.println(leaderboardList.toString());
-  }
+ 
   
   public static void queuePlayer(){
      for(int i=0; i<playerList.size();i++){

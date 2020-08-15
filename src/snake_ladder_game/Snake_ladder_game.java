@@ -60,7 +60,10 @@ public class Snake_ladder_game {
             Queue_Player.turnRound();
         
         }
-      
+        
+        String winner = leaderboardList.getNth(0).getId();
+        
+        System.out.println("Congratulation !!! , "+ winner + " Win the Game !!!");
         
         //Board_Layout.displayBoard100();
 

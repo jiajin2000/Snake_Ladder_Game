@@ -29,8 +29,7 @@ public class Snake_ladder_game {
 
   
     public static void main(String[] args) {
-       
-        String line = "================================";  
+        
         leaderboardList = new DoublyLinkedList<>();
         Iterator<Leaderboard> display = leaderboardList.getIterator();
         playerList = new ArrList<>();
@@ -63,7 +62,7 @@ public class Snake_ladder_game {
         
         String winner = leaderboardList.getNth(0).getId();
         
-        System.out.println("Congratulation !!! , "+ winner + " Win the Game !!!");
+        System.out.println("Congratulation !!!  "+ winner + " WIN THE GAME !!!");
         
         //Board_Layout.displayBoard100();
 

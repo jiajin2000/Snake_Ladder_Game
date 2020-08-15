@@ -23,7 +23,7 @@ public class Roll_Dice {
       static Dice diceNum = new Dice();
       static Scanner scan = new Scanner(System.in);
       static int countRollTime=1;
-      static String line = "===================================";  
+      static String line = "=====================================";  
       
     public static int rollDice(){
        
@@ -32,7 +32,7 @@ public class Roll_Dice {
         do{
 
             diceNum.roll();
-            System.out.println( playerList.get(playerQueue.getFront().getNumber()).getPlayerName() + " rolled \t: "+diceNum.getDice());
+            System.out.println( playerList.get(playerQueue.getFront().getNumber()).getPlayerName() + " rolled\t: "+diceNum.getDice());
             dice.push(diceNum.getDice());
                 
                  if(diceNum.getDice()==6){

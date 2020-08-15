@@ -54,7 +54,7 @@ public class SorLSquare {
 
   @Override
   public String toString() {
-    return String.format("SorLSquare No. %-5d Type : %-10s From %d to %d \n", number, type,startSquare,endSquare);
+    return String.format("Type : %-10s From %d to %d \n",type, startSquare, endSquare);
   }
     
 }

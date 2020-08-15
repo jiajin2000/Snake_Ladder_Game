@@ -7,7 +7,7 @@ package adt;
 
 /**
  *
- * @author ASUS
+ * @author Jimmy Ong Jun Ming
  */
 public interface CircularArrQueueInterface<T> {
     

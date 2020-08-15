@@ -22,7 +22,7 @@ public class Snake_ladder_game {
   static Scanner scan = new Scanner(System.in);
   public static ArrListInterface<Player> playerList;
   public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
-  public static CircularArrQueueInterface<String> playerQueue;
+  public static CircularArrQueueInterface<Player> playerQueue;
   public static BinarySearchTree startTree = new BinarySearchTree();
   public static BinarySearchTree endTree = new BinarySearchTree();
    
@@ -39,6 +39,7 @@ public class Snake_ladder_game {
 
         Add_Snake_Ladder.SorLTree();
         //Add_Snake_Ladder.checkSorL();
+        //playerList.get(1).setCurrentPosition(4);
         Board_Layout.Board_Layout();
         //Sort_Ranking.ranking();
         //Queue_Player.queuePlayer();
@@ -46,9 +47,24 @@ public class Snake_ladder_game {
         Sort_Ranking.createLeaderBoard();
         
         Queue_Player.queuePlayer();
+       
+        while(!leaderboardList.getNth(0).isIsWinner()){
         
-        Roll_Dice.rollDice();
+
+            Queue_Player.round();
+           
+            
+            Board_Layout.Board_Layout();
+            
+            Sort_Ranking.ranking();
+ 
+            Queue_Player.turnRound();
         
+        }
+      
+        
+        //Board_Layout.displayBoard100();
+
     }
 
 }

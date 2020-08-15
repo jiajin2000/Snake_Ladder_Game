@@ -66,11 +66,9 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
     @Override
     public boolean remove(T currentEntry) {
         Node currentNode = firstNode;
-        
         //first, check if the list contain the currentEntry
         if(contains(currentEntry)){
             //find that particular entry within the list
-            System.out.println(currentEntry + "\tada");
             while(!currentEntry.equals(currentNode.data) && currentNode.next != null){
                 currentNode = currentNode.next;
             }

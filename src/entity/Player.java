@@ -11,7 +11,7 @@ package entity;
  */
 public class Player {
  
-  private static int nextNumber = 1;
+  private static int nextNumber = 0;
   private String name;
   private int number;
   private int currentPosition = 1;

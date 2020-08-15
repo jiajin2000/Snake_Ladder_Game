@@ -52,16 +52,24 @@ public class Board_Layout {
                    //boardList.replace(1, new Board(boardList.get(1-1).getBoardNo()+"/P2/P3/P4"));
      
               }
-             
+               //System.out.println(Snake_ladder_game.playerList.toString());
                for (int i = 0; i < Snake_ladder_game.playerList.size(); i++) 
               {
+                   String boardNo;
+                  
+                   int position=Snake_ladder_game.playerList.get(i).getCurrentPosition();
+                   //System.out.println(position);
+                   String positionInString = Integer.toString(Snake_ladder_game.playerList.get(i).getCurrentPosition());
+                   boardNo = boardList.get(Snake_ladder_game.playerList.get(i).getCurrentPosition()-1).getBoardNo();
                    
-
-                  
-                  
-                   boardList.replace(Snake_ladder_game.playerList.get(i).getCurrentPosition(),
-                           new Board(boardList.get(Snake_ladder_game.playerList.get(i).getCurrentPosition()-1).getBoardNo()+Snake_ladder_game.playerList.get(i).getPlayerName()+"/"));
-                   //boardList.replace(SorLSquareList.get(i).getStartSquare(), new Board(SorLSquareList.get(i).getType()));  
+                   //System.out.println(boardNo+positionInString);
+                   if(boardNo.equals(positionInString) == true || boardNo== "Snake" || boardNo== "Ladder"){
+                   boardList.replace(position,new Board(Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));    
+                   }
+                   else{
+                        boardList.replace(position,new Board("*"+boardList.get(position-1).getBoardNo()+Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));
+                   }
+                  //boardList.replace(SorLSquareList.get(i).getStartSquare(), new Board(SorLSquareList.get(i).getType()));  
                    //boardList.replace(1, new Board(boardList.get(1-1).getBoardNo()+"/P2/P3/P4"));
      
               }

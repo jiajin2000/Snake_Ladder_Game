@@ -21,7 +21,7 @@ public class Roll_Dice {
       static Scanner scan = new Scanner(System.in);
       static int countRollTime=1;
       
-    public static void rollDice(){
+    public static int rollDice(){
         int totalStep =0;
         
         do{
@@ -38,12 +38,22 @@ public class Roll_Dice {
            
       }while (diceNum.getDice()==6);
       System.out.println("Your total step is:"+totalStep);
+      
+      return totalStep;
     }
     
     public static void main(String[] args) {
       char selection;
+      char opinion;
+      do{
+      System.out.println("Do you want roll the dice?(Y = yes): ");
+      opinion = scan.next().charAt(0);
+      if(Character.toUpperCase(opinion)!='Y'){
+         System.out.println("Invalid ! Please try again.");
+         System.out.println("");
+     }
+      }while(Character.toUpperCase(opinion)!='Y');
       rollDice();
-      
       do{
          
     System.out.print("Do you want reroll again? (Y = yes N = No): ");
@@ -66,5 +76,4 @@ public class Roll_Dice {
             dice.push(diceNum.getDice());
         }
 }
-    
 }

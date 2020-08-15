@@ -6,9 +6,7 @@ package adt;
  */
 public interface ArrListInterface<T> {
     
-  public boolean add(T newEntry);
-  
-  public boolean set(int index, T newItem);
+  public boolean add(T newItem);
   
   public void clear();
   

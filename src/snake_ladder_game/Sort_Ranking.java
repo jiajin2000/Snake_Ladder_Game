@@ -10,6 +10,7 @@ import entity.Leaderboard;
 import java.util.Iterator;
 import static snake_ladder_game.Snake_ladder_game.leaderboardList;
 import static snake_ladder_game.Snake_ladder_game.playerList;
+import static snake_ladder_game.Snake_ladder_game.playerQueue;
 
 /**
  *
@@ -18,27 +19,30 @@ import static snake_ladder_game.Snake_ladder_game.playerList;
 public class Sort_Ranking {
     
 
+      static String line = "================================";  
+      static String line2 = "--------------------------------";
+      static String layout = String.format("%-5s %-20s %-5s","Rank","Player","Score");
+      
     public static void ranking(){
-      for(int i = 0; i < playerList.size();i++){
-        int count = 1;
-        String id = playerList.get(i).getPlayerName();
-        int score = playerList.get(i).getCurrentPosition();
+      
+   
+         String name= playerList.get(playerQueue.getFront().getNumber()).getPlayerName();
+         System.out.print(name);
+         int newPosition = playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition();
+         System.out.print(newPosition);
+         leaderboardList.remove(new Leaderboard(name));
+         leaderboardList.add(new Leaderboard(name,newPosition));
+         
+         System.out.println(line + "\n\t  Leaderboard\n" + line);
+         System.out.println(layout);
+         System.out.println(line2);
+         System.out.println(leaderboardList.toString());
         
-       // leaderboardList.add(new Leaderboard(id, score));
-        
-        System.out.print("No"+ count + "\t");
-        count++;
-        //String haha = leaderboardList.getNth(i).getId();
-        //int ok = leaderboardList.getNth(i).getScore();    
-        //System.out.println(haha);
-    }
-      System.out.println(leaderboardList.toString());
   }
     
     public static void createLeaderBoard(){
         
-      String line = "================================";  
-      String line2 = "--------------------------------";
+     
       
     for(int i = 0; i < playerList.size();i++){
        
@@ -50,7 +54,6 @@ public class Sort_Ranking {
     }
     
      System.out.println(line + "\n\t  Leaderboard\n" + line);
-     String layout = String.format("%-5s %-20s %-5s","Rank","Player","Score");
      System.out.println(layout);
      System.out.println(line2);
      System.out.println(leaderboardList.toString());

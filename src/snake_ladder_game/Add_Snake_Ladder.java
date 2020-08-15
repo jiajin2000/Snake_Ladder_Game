@@ -16,6 +16,8 @@ import entity.Player;
 import entity.SorLSquare;
 import java.util.Iterator;
 import snake_ladder_game.Add_Player;
+import static snake_ladder_game.Snake_ladder_game.playerList;
+import static snake_ladder_game.Snake_ladder_game.playerQueue;
 /**
  *
  * @author kengboongoh
@@ -67,23 +69,26 @@ public class Add_Snake_Ladder {
    
      public static void checkSorL(){
      
-         int[] currentPosition = {1,90,61,30};
+         int currentPosition =  playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition();
+
+         String name =  playerList.get(playerQueue.getFront().getNumber()).getPlayerName();
          
-         for (int i = 0; i < currentPosition.length; i++)
-         {
-          if(startTree.contains(currentPosition[i])){
+         //for (int i = 0; i < currentPosition.length; i++)
+         //{
+          if(startTree.contains(currentPosition)){
               
               for (int t = 0; t < SorLSquareList.size(); t++) {
                   
-                  int position=currentPosition[i];
+                  int position=currentPosition;
                   int startSquare=SorLSquareList.get(t).getStartSquare();
                   int endSquare=SorLSquareList.get(t).getEndSquare();
                   String type =SorLSquareList.get(t).getType();
                   
                   if(position == startSquare && type == "Ladder")
                   {
-                    currentPosition[i] = endSquare;
-                    System.out.println("Woo Hoo ! Your taking the Shortcut with the Ladder from Position "+ startSquare + " to " + endSquare);
+                    currentPosition = endSquare;
+                    playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);
+                    System.out.println("\n** Woo Hoo ! "+ name+ " taking the Shortcut with the Ladder from Position "+ startSquare + " to " + endSquare+" **\n");
                   
                   }
                  
@@ -91,20 +96,21 @@ public class Add_Snake_Ladder {
               
           }
           
-          if(endTree.contains(currentPosition[i])){
+          if(endTree.contains(currentPosition)){
               
               
               for (int q = 0; q < SorLSquareList.size(); q++) {
                   
-                  int position=currentPosition[i];
+                  int position=currentPosition;
                   int startSquare=SorLSquareList.get(q).getStartSquare();
                   int endSquare=SorLSquareList.get(q).getEndSquare();
                   String type =SorLSquareList.get(q).getType();
                   
                   if(position == endSquare && type == "Snake")
                   {
-                    currentPosition[i] = endSquare;
-                    System.out.println("Oh No ! The Snake is too Slippery, You slide from Position "+ startSquare + " to " + endSquare);
+                    currentPosition = endSquare - 1;
+                     playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);
+                    System.out.println("\n** Oh No ! The Snake is too Slippery, "+ name+ " slide from Position "+ startSquare + " to " + endSquare+" **\n");
                   
                   }
             
@@ -112,7 +118,7 @@ public class Add_Snake_Ladder {
               
           }
              
-         }
+         //}
   
          
      }

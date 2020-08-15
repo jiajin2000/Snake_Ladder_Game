@@ -9,6 +9,8 @@ import adt.LinkedStack;
 import adt.LinkedStackInterface;
 import entity.Dice;
 import java.util.Scanner;
+import static snake_ladder_game.Snake_ladder_game.playerList;
+import static snake_ladder_game.Snake_ladder_game.playerQueue;
 
 /**
  *
@@ -21,28 +23,30 @@ public class Roll_Dice {
       static Scanner scan = new Scanner(System.in);
       static int countRollTime=1;
       
+      
+      
     public static int rollDice(){
         int totalStep =0;
         
         do{
           
           diceNum.roll();
-          System.out.println("You rolled :"+diceNum.getDice());
+          System.out.println( playerList.get(playerQueue.getFront().getNumber()).getPlayerName() + " rolled : "+diceNum.getDice());
           dice.push(diceNum.getDice());
            if(diceNum.getDice()==6){
               
-               System.out.println("Congratulations! You rolled 6, so you have an extra chance to roll it again.");
+               System.out.println("Congratulations!"+ playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+" rolled 6, so you have an extra chance to roll it again.");
                countRollTime++;
            }
            totalStep+=diceNum.getDice();
            
       }while (diceNum.getDice()==6);
-      System.out.println("Your total step is:"+totalStep);
+      System.out.println(playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+" total step is: "+totalStep);
       
       return totalStep;
     }
     
-    public static void main(String[] args) {
+    public static void initiateDice() {
       char selection;
       char opinion;
       do{
@@ -53,7 +57,7 @@ public class Roll_Dice {
          System.out.println("");
      }
       }while(Character.toUpperCase(opinion)!='Y');
-      rollDice();
+       rollDice();
       do{
          
     System.out.print("Do you want reroll again? (Y = yes N = No): ");
@@ -70,7 +74,7 @@ public class Roll_Dice {
             }
             countRollTime=1;
             System.out.println("");
-            rollDice();
+             rollDice();
         }
         else{
             dice.push(diceNum.getDice());

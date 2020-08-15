@@ -43,8 +43,26 @@ public class Board_Layout {
 
         if (option == 1) {
             addBoard100();
-            
-             for (int i = 0; i < SorLSquareList.size(); i++) 
+            updateBoard100();
+            displayBoard100();
+        } else {
+            addBoard50();
+//            boardList.replace(23, new Board("P1"));
+//            boardList.replace(25, new Board("SNAKE"));
+            displayBoard50();
+        }
+
+    }
+
+    public static void board100(){
+        boardList = new linkedList<>();
+        addBoard100();
+        updateBoard100();
+        displayBoard100();
+    }
+    
+    public static void updateBoard100(){
+        for (int i = 0; i < SorLSquareList.size(); i++) 
               {
 
                    //boardList.replace(Snake_ladder_game.playerList.get(i).getCurrentPosition(), new Board(Snake_ladder_game.playerList.get(i).getPlayerName()));
@@ -73,19 +91,8 @@ public class Board_Layout {
                    //boardList.replace(1, new Board(boardList.get(1-1).getBoardNo()+"/P2/P3/P4"));
      
               }
-            
-            //boardList.replace(1, new Board("P1"));
-            //boardList.replace(1, new Board(boardList.get(1-1).getBoardNo()+"/P2/P3/P4"));
-            displayBoard100();
-        } else {
-            addBoard50();
-//            boardList.replace(23, new Board("P1"));
-//            boardList.replace(25, new Board("SNAKE"));
-            displayBoard50();
-        }
-
     }
-
+    
     public static void addBoard100() {
         for (int i = 1; i < 101; i++) {
             boardList.add(new Board(Integer.toString(i)));

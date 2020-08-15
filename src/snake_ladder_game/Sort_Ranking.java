@@ -23,13 +23,11 @@ public class Sort_Ranking {
       static String line2 = "--------------------------------";
       static String layout = String.format("%-5s %-20s %-5s","Rank","Player","Score");
       
-    public static void ranking(){
+    public static void updateRanking(){
       
    
          String name= playerList.get(playerQueue.getFront().getNumber()).getPlayerName();
-         System.out.print(name);
          int newPosition = playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition();
-         System.out.print(newPosition);
          leaderboardList.remove(new Leaderboard(name));
          leaderboardList.add(new Leaderboard(name,newPosition));
          

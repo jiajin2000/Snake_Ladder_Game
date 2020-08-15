@@ -69,13 +69,13 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
         //first, check if the list contain the currentEntry
         if(contains(currentEntry)){
             //find that particular entry within the list
-            while(currentEntry.compareTo(currentNode.data) != 0 && currentNode.next != null){
+            while(!currentEntry.equals(currentNode.data) && currentNode.next != null){
                 currentNode = currentNode.next;
             }
             //remove if it is the firstNode
             if(currentNode == firstNode){
-                firstNode.next.previous = null;
-                firstNode = currentNode.next;
+                firstNode = firstNode.next;
+                firstNode.previous = null;
             }
             //remove if it is the lastNode
             else if(currentNode.next == null){

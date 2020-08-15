@@ -53,24 +53,14 @@ public class Roll_Dice {
     
     public static void initiateDice() {
       char selection;
-      char opinion;
-      do{
+      
+      
             System.out.println(line);
             
-            System.out.println("Do you want roll the dice?(Y = yes): ");
-            opinion = scan.next().charAt(0);
+            System.out.print("Key in anything to roll the dice: ");
+            scan.next().charAt(0);
             
             System.out.println(line);
-            
-
-            if(Character.toUpperCase(opinion)!='Y'){
-               
-               System.out.println("Invalid ! Please try again.");
-               System.out.println("");
-               
-            }
-            
-        }while(Character.toUpperCase(opinion)!='Y');
         
         int steps = rollDice();
          

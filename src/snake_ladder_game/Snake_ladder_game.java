@@ -36,6 +36,7 @@ public class Snake_ladder_game {
         playerList = new ArrList<>();
         playerQueue = new CircularArrQueue<>();
         Add_Player.addPlayer();
+        System.out.println("Hello");
 
         Add_Snake_Ladder.SorLTree();
         //Add_Snake_Ladder.checkSorL();

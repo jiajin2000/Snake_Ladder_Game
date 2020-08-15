@@ -28,8 +28,8 @@ public class Queue_Player {
         //System.out.println("");
         
         System.out.println("Now is "+ playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+ " Turn !");
-        int totalStep = Roll_Dice.rollDice();
-        int currentPosition =  playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition() + totalStep;
+        int currentPosition = Roll_Dice.rollDice();
+        //int currentPosition =  playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition() + totalStep;
         //playerQueue.getFront().getNumber();
         //System.out.println(playerList.get(playerQueue.getFront().getNumber()));
         playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);

@@ -43,7 +43,14 @@ public class Roll_Dice {
       }while (diceNum.getDice()==6);
       System.out.println(playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+" total step is: "+totalStep);
       
-      return totalStep;
+      int currentPosition =  playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition() + totalStep;
+      if(currentPosition > 100)
+      {
+          
+          currentPosition = 100 - (currentPosition - 100);
+      }   
+       
+      return currentPosition;
     }
     
     public static void initiateDice() {

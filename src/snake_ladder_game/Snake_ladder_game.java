@@ -53,7 +53,6 @@ public class Snake_ladder_game {
 
             Queue_Player.round();
            
-            
             Board_Layout.Board_Layout();
             
             Sort_Ranking.updateRanking();

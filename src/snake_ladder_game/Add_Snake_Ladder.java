@@ -27,6 +27,7 @@ public class Add_Snake_Ladder {
      public static ArrListInterface<SorLSquare> SorLSquareList;
      public static BinarySearchTree startTree = new BinarySearchTree();
      public static BinarySearchTree endTree = new BinarySearchTree();
+     static String line = "================================";  
     
     public static void SorLTree() {
       
@@ -48,6 +49,9 @@ public class Add_Snake_Ladder {
     
     //System.out.println("\nEndTree contains: ");
     //display(endTree);
+     System.out.println(line+"\n");
+     System.out.print(SorLSquareList.toString());
+     System.out.println(line);
     
           
     }

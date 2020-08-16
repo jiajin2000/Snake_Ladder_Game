@@ -54,11 +54,20 @@ public class Board_Layout {
 
     }
 
+    //Board100
+    
     public static void board100(){
         boardList = new linkedList<>();
         addBoard100();
         updateBoard100();
         displayBoard100();
+    }
+    
+    public static void addBoard100() {
+        for (int i = 1; i < 101; i++) {
+            boardList.add(new Board(Integer.toString(i)));
+        }
+
     }
     
     public static void updateBoard100(){
@@ -82,22 +91,15 @@ public class Board_Layout {
                    
                    //System.out.println(boardNo+positionInString);
                    if(boardNo.equals(positionInString) == true || boardNo== "Snake" || boardNo== "Ladder"){
-                   boardList.replace(position,new Board(Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));    
+                   boardList.replace(position,new Board("*"+Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));    
                    }
                    else{
-                        boardList.replace(position,new Board("*"+boardList.get(position-1).getBoardNo()+Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));
+                        boardList.replace(position,new Board(boardList.get(position-1).getBoardNo()+Snake_ladder_game.playerList.get(i).getPlayerName()+"*"));
                    }
                   //boardList.replace(SorLSquareList.get(i).getStartSquare(), new Board(SorLSquareList.get(i).getType()));  
                    //boardList.replace(1, new Board(boardList.get(1-1).getBoardNo()+"/P2/P3/P4"));
      
               }
-    }
-    
-    public static void addBoard100() {
-        for (int i = 1; i < 101; i++) {
-            boardList.add(new Board(Integer.toString(i)));
-        }
-
     }
     
     public static void displayBoard100(){
@@ -133,6 +135,8 @@ public class Board_Layout {
         System.out.println();
     }
 
+    //Board50
+    
     public static void addBoard50() {
 
         for (int i = 1; i < 51; i++) {
@@ -172,4 +176,6 @@ public class Board_Layout {
         System.out.println();
     }
 
+    
+    
 }

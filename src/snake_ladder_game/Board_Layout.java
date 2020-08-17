@@ -10,48 +10,19 @@ import static snake_ladder_game.Add_Snake_Ladder.startTree;
 
 /**
  *
- * @author kengboongoh
+ * @author Ang Jen Tat
  */
 public class Board_Layout {
 
-    /**
-     * @param args the command line arguments
-     */
     public static linkedListInterface<Board> boardList;
     static Scanner scan = new Scanner(System.in);
 
     public static void Board_Layout() {
-
-        boardList = new linkedList<>();
-        int option;
-        System.out.println("Snakes & Ladders");
-        System.out.println("1. 100 Squares");
-        System.out.println("2. 50 Squares");
-        System.out.print("Please select the Snakes & Ladders version you want to play (1/2):");
-        option = scan.nextInt();
-
-        while (option < 1 || option > 2) {
-
-            System.out.println("\nInvalid Entry!Please select again");
-            System.out.println("Snakes & Ladders");
-            System.out.println("1. 100 Squares");
-            System.out.println("2. 50 Squares");
-            System.out.print("Please select the Snakes & Ladders version you want to play (1/2):");
-            option = scan.nextInt();
-            System.out.println();
-        }
-
-        if (option == 1) {
-            addBoard100();
-            updateBoard100();
-            displayBoard100();
-        } else {
-            addBoard50();
-//            boardList.replace(23, new Board("P1"));
-//            boardList.replace(25, new Board("SNAKE"));
-            displayBoard50();
-        }
-
+        System.out.println();
+        System.out.println("========Snakes & Ladders========");
+        System.out.print("Enter anything to START the game: ");
+        scan.next().charAt(0);
+        board100();
     }
 
     //Board100
@@ -104,10 +75,18 @@ public class Board_Layout {
     
     public static void displayBoard100(){
         System.out.println();
+        for(int i =0;i<88;i++){
+            System.out.print("=");
+        }
+        System.out.print("Snakes & Ladders");
+        for(int i =0;i<88;i++){
+            System.out.print("=");
+        }
+        System.out.println();
         
         for (int i = 99; i >= 0; i--) {
             if (i == 99) {
-                System.out.print("    ");
+                System.out.print("  ");
             }
             System.out.printf("%-19s",boardList.get(i).getBoardNo());
 
@@ -118,7 +97,7 @@ public class Board_Layout {
                 for (int k = f; k < i; k++) {
                     if (k == f) {
                         System.out.println();
-                        System.out.print("    ");
+                        System.out.print("  ");
                     }
                     if (k < 9) {
                         System.out.printf("%-19s",boardList.get(k).getBoardNo());
@@ -129,53 +108,16 @@ public class Board_Layout {
                 }
                 i = f;
                 System.out.println();
-                System.out.print("    ");
+                System.out.print("  ");
             }
         }
+        System.out.print("\b\b");
+        for(int i =0;i<192;i++){
+            System.out.print("=");
+        }        System.out.println();
         System.out.println();
-    }
 
-    //Board50
-    
-    public static void addBoard50() {
-
-        for (int i = 1; i < 51; i++) {
-            boardList.add(new Board(Integer.toString(i)));
-        }
     }
     
-    public static void displayBoard50(){
-        for (int i = 50; i >= 0; i--) {
 
-            if (i % 10 == 0) {
-                if (i != 50) {
-                    System.out.printf("%-19s",boardList.get(i).getBoardNo());
-                }
-                int f = i - 10;
-                for (int k = f; k < i; k++) {
-                    if (k == f) {
-                        System.out.println();
-                        System.out.print("    ");
-                    }
-                    if (k < 9) {
-                        System.out.printf("%-19s",boardList.get(k).getBoardNo());
-                    } else {
-                        System.out.printf("%-19s",boardList.get(k).getBoardNo());
-                    }
-                    System.out.print(" ");
-                }
-                i = f;
-                System.out.println();
-                System.out.print("    ");
-            } else {
-                System.out.printf("%-19s",boardList.get(i).getBoardNo());
-                System.out.print(" ");
-            }
-
-        }
-        System.out.println();
-    }
-
-    
-    
 }

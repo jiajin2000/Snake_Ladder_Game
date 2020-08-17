@@ -11,8 +11,8 @@ package adt;
  */
 public class linkedList<T> implements linkedListInterface<T> {
 
-  private Node firstNode; // reference to first node
-  private int length;  	// number of entries in list
+  private Node firstNode; 
+  private int length;
 
   public linkedList() {
     clear();
@@ -26,16 +26,16 @@ public class linkedList<T> implements linkedListInterface<T> {
 
   @Override
   public boolean add(T newEntry) {
-    Node newNode = new Node(newEntry);	// create the new node
+    Node newNode = new Node(newEntry);	
 
     if (isEmpty()) {
       firstNode = newNode;
-    } else {                        // add to end of nonempty list
-      Node currentNode = firstNode;	// traverse linked list with p pointing to the current node
-      while (currentNode.next != null) { // while have not reached the last node
+    } else {                       
+      Node currentNode = firstNode;	
+      while (currentNode.next != null) { 
         currentNode = currentNode.next;
       }
-      currentNode.next = newNode; // make last node reference new node
+      currentNode.next = newNode; 
     }
 
     length++;
@@ -43,23 +43,23 @@ public class linkedList<T> implements linkedListInterface<T> {
   }
 
   @Override
-  public boolean add(int newPosition, T newEntry) { // OutOfMemoryError possible
+  public boolean add(int newPosition, T newEntry) { 
     boolean isSuccessful = true;
 
     if ((newPosition >= 1) && (newPosition <= length + 1)) {
       Node newNode = new Node(newEntry);
 
-      if (isEmpty() || (newPosition == 1)) { // case 1: add to beginning of list
+      if (isEmpty() || (newPosition == 1)) { 
         newNode.next = firstNode;
         firstNode = newNode;
-      } else {								// case 2: list is not empty and newPosition > 1
+      } else {				
         Node nodeBefore = firstNode;
         for (int i = 1; i < newPosition - 1; ++i) {
-          nodeBefore = nodeBefore.next;		// advance nodeBefore to its next node
+          nodeBefore = nodeBefore.next;	
         }
 
-        newNode.next = nodeBefore.next;	// make new node point to current node at newPosition
-        nodeBefore.next = newNode;		// make the node before point to the new node
+        newNode.next = nodeBefore.next;	
+        nodeBefore.next = newNode;
       }
 
       length++;
@@ -72,25 +72,25 @@ public class linkedList<T> implements linkedListInterface<T> {
 
   @Override
   public T remove(int givenPosition) {
-    T result = null;                 // return value
+    T result = null;   
 
     if ((givenPosition >= 1) && (givenPosition <= length)) {
-      if (givenPosition == 1) {      // case 1: remove first entry
-        result = firstNode.data;     // save entry to be removed
+      if (givenPosition == 1) {   
+        result = firstNode.data;  
         firstNode = firstNode.next;
-      } else {                         // case 2: givenPosition > 1
+      } else {                       
         Node nodeBefore = firstNode;
         for (int i = 1; i < givenPosition - 1; ++i) {
-          nodeBefore = nodeBefore.next;		// advance nodeBefore to its next node
+          nodeBefore = nodeBefore.next;	
         }
-        result = nodeBefore.next.data;  // save entry to be removed
-        nodeBefore.next = nodeBefore.next.next;	// make node before point to node after the
+        result = nodeBefore.next.data; 
+        nodeBefore.next = nodeBefore.next.next;	
       } 																// one to be deleted (to disconnect node from chain)
 
       length--;
     }
 
-    return result; // return removed entry, or null if operation fails
+    return result; 
   }
 
   @Override
@@ -100,9 +100,9 @@ public class linkedList<T> implements linkedListInterface<T> {
     if ((givenPosition >= 1) && (givenPosition <= length)) {
       Node currentNode = firstNode;
       for (int i = 0; i < givenPosition -1; ++i) {
-        currentNode = currentNode.next;		// advance currentNode to next node
+        currentNode = currentNode.next;		
       }
-      currentNode.data = newEntry;	// currentNode is pointing to the node at givenPosition
+      currentNode.data = newEntry;
     } else {
       isSuccessful = false;
     }
@@ -117,20 +117,18 @@ public class linkedList<T> implements linkedListInterface<T> {
     if ((givenPosition >= 1) && (givenPosition <= length)) {
       Node currentNode = firstNode;
       for (int i = 0; i < givenPosition - 1; ++i) {
-        currentNode = currentNode.next;		// advance currentNode to next node
+        currentNode = currentNode.next;	
       }
-      result = currentNode.data;	// currentNode is pointing to the node at givenPosition
+      result = currentNode.data;
     }
 
     return result;
   }
   
-   /* Takes index as argument and return data at index*/
     public T get(int index) 
     { 
         Node current = firstNode; 
-        int count = 0; /* index of Node we are 
-                          currently looking at */
+        int count = 0; 
         while (current != null) 
         { 
             if (count == index) 
@@ -139,8 +137,6 @@ public class linkedList<T> implements linkedListInterface<T> {
             current = current.next; 
         } 
   
-        /* if we get to this line, the caller was asking 
-        for a non-existent element so we assert fail */
         assert(false); 
         return firstNode.data; 
     } 

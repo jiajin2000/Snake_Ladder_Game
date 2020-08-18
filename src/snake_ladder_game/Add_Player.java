@@ -10,6 +10,7 @@ import adt.DoublyLinkedList;
 import entity.Leaderboard;
 import entity.Player;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 import static snake_ladder_game.Snake_ladder_game.scan;
 import static snake_ladder_game.Snake_ladder_game.leaderboardList;
 import static snake_ladder_game.Snake_ladder_game.playerList;
@@ -30,16 +31,36 @@ public class Add_Player {
    
     // Hardcoded data for testing purposes only
     int option;
-    System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-    option = scan.nextInt();
+    //System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
+    //option = scan.nextInt();
     
-     while(option < 2 || option > 4 ){
-         
+    String regex = "\\d+";
+    Pattern pattern = Pattern.compile(regex);
+    String data = "1";
+   
+    do {
+        System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
+        while (!scan.hasNextInt()) {
             System.out.println("Invalid Entry of Number of Player !");
             System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-            option = scan.nextInt();
-            System.out.println("");
+            scan.next(); // this is important!
         }
+        option = scan.nextInt();
+        data = Integer.toString(option);
+    } while ((option < 2 || option > 4) || (pattern.matcher(data).matches()== false));
+    
+    //String regex = "\\d+";
+    //Pattern pattern = Pattern.compile(regex);
+    //String data = Integer.toString(option);
+    //System.out.print(pattern.matcher(data).matches());
+    
+    // while((option < 2 || option > 4) || (pattern.matcher(data).matches()== false) ){
+         
+     //       System.out.println("Invalid Entry of Number of Player !");
+     //       System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
+     //       option = scan.nextInt();
+     //       System.out.println("");
+     //   }
      
      
     String clear = scan.nextLine();
@@ -47,6 +68,14 @@ public class Add_Player {
          
          System.out.print("Please Enter Player " + i + "'s Name  :");
          String name = scan.nextLine();
+         
+         while(name.length()>3){
+            System.out.println("\nMaximum Length of Player's Name is 3 !\n");
+            System.out.print("Please Enter Player " + i + "'s Name  :");
+            name = scan.nextLine();
+            System.out.println("");
+        }
+         
          playerList.add(new Player(name));
       
         

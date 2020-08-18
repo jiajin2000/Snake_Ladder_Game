@@ -19,7 +19,5 @@ public interface ArrListInterface<T> {
   public int size();
 
   public T get(int i);
-
-  public int find(T item);
     
 }

@@ -66,7 +66,7 @@ public class Player {
       
   @Override
   public String toString() {
-    return String.format("Player No. %-5d Player Name : %-20s\n", number, name);
+    return String.format("Player No. %-5d Player Name : %-20s\n", number+1, name);
   }
   
   

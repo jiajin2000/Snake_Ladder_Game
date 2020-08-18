@@ -49,7 +49,7 @@ public class Add_Snake_Ladder {
     
     //System.out.println("\nEndTree contains: ");
     //display(endTree);
-     System.out.println(line+"\n");
+     System.out.println("========Snakes & Ladders========\n");
      System.out.print(SorLSquareList.toString());
      System.out.println(line);
     
@@ -57,7 +57,8 @@ public class Add_Snake_Ladder {
     }
     
     public static void addSnakeorLadder() {
-      
+         
+         
          SorLSquareList.add(new SorLSquare("Ladder",20,31));
          SorLSquareList.add(new SorLSquare("Ladder",6,25));
          SorLSquareList.add(new SorLSquare("Ladder",41,60));

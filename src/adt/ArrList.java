@@ -11,7 +11,6 @@ public class ArrList<T> implements ArrListInterface<T> {
     
   private T[] array;
   private int length;
-  private static int DEFAULT_ERROR_CODE =-1;
   private static final int DEFAULT_CAPACITY = 4;
 
   public ArrList() {
@@ -80,16 +79,7 @@ public class ArrList<T> implements ArrListInterface<T> {
   }
 
   
-  public int find(T item){
-  int returnIndex = DEFAULT_ERROR_CODE;
-  for(int i=0;i<this.length;i++){
-  if(array[i].equals(item)){
-	returnIndex = i;
-	break;
-  }
-  }
-  return returnIndex;
-  }
+ 
 
   
     public String toString() {

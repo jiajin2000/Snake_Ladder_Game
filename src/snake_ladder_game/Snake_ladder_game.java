@@ -10,10 +10,8 @@ import entity.Leaderboard;
 import adt.CircularArrQueueInterface;
 import java.util.*;
 import java.util.Random;
-/**
- *
- * @author kengboongoh
- */
+
+
 public class Snake_ladder_game {
 
     /**

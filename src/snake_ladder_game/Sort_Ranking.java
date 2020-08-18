@@ -14,7 +14,7 @@ import static snake_ladder_game.Snake_ladder_game.playerQueue;
 
 /**
  *
- * @author kengboongoh
+ * @author chiater
  */
 public class Sort_Ranking {
     
@@ -39,8 +39,6 @@ public class Sort_Ranking {
   }
     
     public static void createLeaderBoard(){
-        
-     
       
     for(int i = 0; i < playerList.size();i++){
        

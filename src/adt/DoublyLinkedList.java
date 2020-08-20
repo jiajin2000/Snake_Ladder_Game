@@ -129,12 +129,12 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
      * @return
      */
     @Override
-    public T getNth(int index){
+    public T getNth(int position){
         Node currentNode = firstNode;
         int count = 0;
         
         while(!isEmpty() || currentNode.next != null){
-            if(count == index){
+            if(count == position){
                 return currentNode.data;
             }
             count++;

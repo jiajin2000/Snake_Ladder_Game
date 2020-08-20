@@ -7,7 +7,7 @@ package adt;
 
 /**
  *
- * @author 
+ * @author Ang Jen Tat
  */
 public interface linkedListInterface <T>{
     

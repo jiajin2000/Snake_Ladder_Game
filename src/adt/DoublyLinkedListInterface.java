@@ -19,5 +19,5 @@ public interface DoublyLinkedListInterface<T extends Comparable<T>> {
     public void clear();
     public boolean isEmpty();
     public Iterator<T> getIterator();
-    public T getNth(int index);
+    public T getNth(int position);
 }

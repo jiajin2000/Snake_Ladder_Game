@@ -27,10 +27,6 @@ public class ArrList<T> implements ArrListInterface<T> {
     length++;
     return true;
   }
-
-  public void clear() {
-    length = 0;
-  }
   
   public boolean isEmpty() {
     return length == 0;
@@ -55,31 +51,7 @@ public class ArrList<T> implements ArrListInterface<T> {
   
   }
 
-  public boolean replace(int index, T newItem) {
-    boolean isSuccessful = true;
-
-    if ((index >= 1) && (index <= length)) {
-      array[index - 1] = newItem;
-    } else {
-      isSuccessful = false;
-    }
-
-    return isSuccessful;
-  }
-
-  public boolean contains(T item) {
-    boolean found = false;
-    for (int index = 0; !found && (index < length); index++) {
-      if (item.equals(array[index])) {
-        found = true;
-      }
-    }
-
-    return found;
-  }
-
   
- 
 
   
     public String toString() {

@@ -81,7 +81,15 @@ public class Roll_Dice {
       }while(Character.toUpperCase(selection)!='Y'&& Character.toUpperCase(selection)!='N');
     
         if(Character.toUpperCase(selection)!='N'){
+            System.out.println("");
+            System.out.println("");
+            System.out.println("Now still is "+ playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+ " Turn ! Because "+ playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+" select reroll again.");
+            System.out.println(line);
             
+            System.out.print("Enter anything to roll again the dice: ");
+            scan.next().charAt(0);
+            
+            System.out.println(line);
             for(int i=0;i<countRollTime;i++){
              dice.pop();
             }

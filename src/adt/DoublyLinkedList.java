@@ -67,7 +67,7 @@ public class DoublyLinkedList <T extends Comparable<T>> implements DoublyLinkedL
     public boolean remove(T currentEntry) {
         Node currentNode = firstNode;
         //first, check if the list contain the currentEntry
-        if(contains(currentEntry)){
+        if(!isEmpty() && contains(currentEntry)){
             //find that particular entry within the list
             while(!currentEntry.equals(currentNode.data) && currentNode.next != null){
                 currentNode = currentNode.next;

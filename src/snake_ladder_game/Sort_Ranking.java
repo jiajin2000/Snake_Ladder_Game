@@ -41,21 +41,14 @@ public class Sort_Ranking {
     public static void createLeaderBoard(){
       
     for(int i = 0; i < playerList.size();i++){
-       
-      
         String id = playerList.get(i).getPlayerName();
-        
         Snake_ladder_game.leaderboardList.add(new Leaderboard(id));
-
     }
     
      System.out.println(line + "\n\t  Leaderboard\n" + line);
      System.out.println(layout);
      System.out.println(line2);
-     System.out.println(leaderboardList.toString());
-    
-     
-        
+     System.out.println(leaderboardList.toString());   
     }
     
     

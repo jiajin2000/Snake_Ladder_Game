@@ -7,7 +7,7 @@ package adt;
 
 /**
  *
- * @author 
+ * @author Ang Jen Tat
  */
 public class linkedList<T> implements linkedListInterface<T> {
 
@@ -125,13 +125,13 @@ public class linkedList<T> implements linkedListInterface<T> {
     return result;
   }
   
-    public T get(int index) 
+    public T get(int position) 
     { 
         Node current = firstNode; 
         int count = 0; 
         while (current != null) 
         { 
-            if (count == index) 
+            if (count == position) 
                 return current.data; 
             count++; 
             current = current.next; 

@@ -8,10 +8,6 @@ public interface ArrListInterface<T> {
     
   public boolean add(T newItem);
   
-  public void clear();
-  
-  public boolean contains(T item);
-  
   public boolean isEmpty();
 
   public boolean isFull();

@@ -23,16 +23,11 @@ public class Add_Player {
     
 
     public static void addPlayer() {
-     //ArrListInterface<Player> playerList;
-     //DoublyLinkedListInterface<Leaderboard> leaderboardList;
      
     String line = "================================";  
     playerList = new ArrList<>();
    
-    // Hardcoded data for testing purposes only
     int option;
-    //System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-    //option = scan.nextInt();
     
     String regex = "\\d+";
     Pattern pattern = Pattern.compile(regex);
@@ -49,18 +44,6 @@ public class Add_Player {
         data = Integer.toString(option);
     } while ((option < 2 || option > 4) || (pattern.matcher(data).matches()== false));
     
-    //String regex = "\\d+";
-    //Pattern pattern = Pattern.compile(regex);
-    //String data = Integer.toString(option);
-    //System.out.print(pattern.matcher(data).matches());
-    
-    // while((option < 2 || option > 4) || (pattern.matcher(data).matches()== false) ){
-         
-     //       System.out.println("Invalid Entry of Number of Player !");
-     //       System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
-     //       option = scan.nextInt();
-     //       System.out.println("");
-     //   }
      
      
     String clear = scan.nextLine();
@@ -80,20 +63,12 @@ public class Add_Player {
       
         
     }
-    //playerList.add(new Player("Jen Tat"));
-    //playerList.add(new Player("Chia Ter"));
-    
-    
+
+ 
      System.out.println("");
      System.out.println("Player Successfully Registered !\n" + line);
      System.out.println(playerList.toString());
-     //System.out.println(PlayerArrList.toString());
-     //playerQueue = new CircularArrQueue<>();
-     //queuePlayer();
-    
-     //System.out.println(line + "\n\t  Leaderboard\n" + line);
-     //System.out.println(leaderboardList.toString());
-     //System.out.println(leaderboardList.getNth(0).getId() + "  is leading!!");
+
   }
     
 }

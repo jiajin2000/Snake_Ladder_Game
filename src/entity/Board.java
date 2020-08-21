@@ -7,15 +7,16 @@ package entity;
 
 /**
  *
- * @author 
+ * @author Ang Jen Tat
  */
 public class Board {
-    
+
     private String boardNo;
 
-  public Board(String boardNo) {
-    this.boardNo= boardNo;
-  }
+    public Board(String boardNo) {
+        this.boardNo = boardNo;
+    }
+
     public String getBoardNo() {
         return boardNo;
     }
@@ -23,10 +24,15 @@ public class Board {
     public void setBoardNo(String boardNo) {
         this.boardNo = boardNo;
     }
+    
+    public int boardNoInt(){
+        return Integer.parseInt(boardNo);
+    }
 
-  @Override
-  public String toString() {
-    return String.format("Board NO : %s", boardNo);
-  }
-  
+    
+    @Override
+    public String toString() {
+        return String.format("Board NO : %s", boardNo);
+    }
+
 }

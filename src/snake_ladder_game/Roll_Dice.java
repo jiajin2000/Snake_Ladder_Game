@@ -39,7 +39,7 @@ public class Roll_Dice {
 
                      System.out.println("Congratulations!"+ playerList.get(playerQueue.getFront().getNumber()).getPlayerName()+" rolled 6, so you have an extra chance to roll it again.");
                      countRollTime++;
-                     System.out.print("Key in anything to roll the dice: ");
+                     System.out.print("Key in anything to roll the dice again: ");
                      scan.next().charAt(0);
                     }
                  

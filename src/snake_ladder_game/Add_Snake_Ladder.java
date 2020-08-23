@@ -27,7 +27,7 @@ public class Add_Snake_Ladder {
 
             startTree.add(SorLSquareList.get(i).getStartSquare());
 
-           // endTree.add(SorLSquareList.get(i).getEndSquare());
+            endTree.add(SorLSquareList.get(i).getEndSquare());
 
         }
 
@@ -44,12 +44,12 @@ public class Add_Snake_Ladder {
         SorLSquareList.add(new SorLSquare("Ladder", 41, 60));
         SorLSquareList.add(new SorLSquare("Ladder", 30, 80));
 
-        SorLSquareList.add(new SorLSquare("Snake", 50, 7));
-        SorLSquareList.add(new SorLSquare("Snake", 60, 19));
-        SorLSquareList.add(new SorLSquare("Snake", 78, 50));
-        SorLSquareList.add(new SorLSquare("Snake", 90, 61));
-        SorLSquareList.add(new SorLSquare("Snake", 93, 34));
-        SorLSquareList.add(new SorLSquare("Snake", 97, 70));
+        SorLSquareList.add(new SorLSquare("Snake", 7, 50));
+        SorLSquareList.add(new SorLSquare("Snake", 19, 62));
+        SorLSquareList.add(new SorLSquare("Snake", 50, 78));
+        SorLSquareList.add(new SorLSquare("Snake", 61, 90));
+        SorLSquareList.add(new SorLSquare("Snake", 39, 93));
+        SorLSquareList.add(new SorLSquare("Snake", 70, 97));
 
     }
 
@@ -79,7 +79,7 @@ public class Add_Snake_Ladder {
 
         }
 
-        if (startTree.contains(currentPosition)) {
+        if (endTree.contains(currentPosition)) {
 
             for (int q = 0; q < SorLSquareList.size(); q++) {
 
@@ -88,10 +88,10 @@ public class Add_Snake_Ladder {
                 int endSquare = SorLSquareList.get(q).getEndSquare();
                 String type = SorLSquareList.get(q).getType();
 
-                if (position == startSquare && type == "Snake") {
-                    currentPosition = endSquare;
+                if (position == endSquare && type == "Snake") {
+                    currentPosition = startSquare;
                     playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);
-                    System.out.println("\n** Oh No ! The Snake is too Slippery, " + name + " slide from Position " + startSquare + " to " + endSquare + " **\n");
+                    System.out.println("\n** Oh No ! The Snake is too Slippery, " + name + " slide from Position " + endSquare + " to " + startSquare + " **\n");
 
                 }
 

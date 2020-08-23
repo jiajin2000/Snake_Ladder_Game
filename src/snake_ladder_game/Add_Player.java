@@ -69,6 +69,9 @@ public class Add_Player {
         
         confirmPlayer();
         
+        System.out.println("");
+        System.out.println("");
+        System.out.println(line);
         System.out.println("Player Successfully Registered !\n" + line);
         System.out.println(playerList.toString());
 
@@ -93,28 +96,26 @@ public class Add_Player {
                 System.out.println("\nPlease Enter 1 to 3 only !");
                 System.out.print("Please Select Your Option :");
                 option = scan.nextInt();
-                //System.out.println("");
+              
        }  
      System.out.println(line);
      
-     if(option == 1){
+     if(option == 3){
      
-        System.out.println("Player Successfully Registered !\n" + line);
-        System.out.println(playerList.toString());
-         
+        playerList.clear();
+     
+        int num = 0;
+        Player.Reset();
+
+        addPlayer();
+        
      }else if(option == 2){
 
          editPlayer();
      
     }else
     {
-     playerList.clear();
-     
-     int num = 0;
-     Player.Reset();
-     
-     addPlayer();
-    
+
     }
      
     }

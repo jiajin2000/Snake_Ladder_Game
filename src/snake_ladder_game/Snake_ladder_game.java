@@ -32,8 +32,7 @@ public class Snake_ladder_game {
 
     public static void main(String[] args) {
         
-        
-        String filepath = "src/music/BGM.wav";
+         String filepath = "src/music/BGM.wav";
         playBGM(filepath);
 
         
@@ -70,7 +69,7 @@ public class Snake_ladder_game {
 
         System.out.println("Congratulation !!!  " + winner + " WIN THE GAME !!!");
         
-        filepath = "src/music/Kid_Cheers.wav";
+        filepath = "src/music/winning.wav";
         
         playWinnerBGM(filepath); 
         

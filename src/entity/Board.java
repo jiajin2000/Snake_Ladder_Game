@@ -11,28 +11,28 @@ package entity;
  */
 public class Board {
 
-    private String boardNo;
+    private String boardSquare;
 
     public Board(String boardNo) {
-        this.boardNo = boardNo;
+        this.boardSquare = boardNo;
     }
 
-    public String getBoardNo() {
-        return boardNo;
+    public String getBoardSquare() {
+        return boardSquare;
     }
 
-    public void setBoardNo(String boardNo) {
-        this.boardNo = boardNo;
+    public void setBoardSquare(String boardSquare) {
+        this.boardSquare = boardSquare;
     }
     
-    public int boardNoInt(){
-        return Integer.parseInt(boardNo);
+    public int boardSquareInt(){
+        return Integer.parseInt(boardSquare);
     }
 
     
     @Override
     public String toString() {
-        return String.format("Board NO : %s", boardNo);
+        return String.format("Board Square : %s", boardSquare);
     }
 
 }

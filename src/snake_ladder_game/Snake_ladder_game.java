@@ -9,12 +9,17 @@ import adt.DoublyLinkedList;
 import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
 import adt.CircularArrQueueInterface;
+
 import java.io.File;
 import java.util.*;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.JOptionPane;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Snake_ladder_game {
 
@@ -26,9 +31,11 @@ public class Snake_ladder_game {
     public static BinarySearchTree endTree = new BinarySearchTree();
 
     public static void main(String[] args) {
-
+        
+        
         String filepath = "src/music/BGM.wav";
         playBGM(filepath);
+
         
         logo();
         leaderboardList = new DoublyLinkedList<>();
@@ -56,19 +63,42 @@ public class Snake_ladder_game {
             Queue_Player.turnRound();
 
         }
-
+        
+    
+        
         String winner = leaderboardList.getNth(0).getId();
 
         System.out.println("Congratulation !!!  " + winner + " WIN THE GAME !!!");
-        
-        //playBGM.clip.stop();
         
         filepath = "src/music/Kid_Cheers.wav";
         
         playWinnerBGM(filepath);
         
-         
-
+        enterExit();
+        //playBGM.clip.stop();
+        
+    }
+    
+    private static void enterExit(){
+    
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+        while(true){
+            System.out.println("\nPress Enter Key to Exit Game n...");
+            String s = null;
+            try {
+                s = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if((s == null)||(s.length() == 0)||(s.trim().equals(""))) //Press Enter to Exit...
+            {
+                //System.out.println("See You Again");
+                System.exit(0);
+            }else{
+                 //Prevent User key in any other key and exit 
+                 System.exit(0);
+            }
+        }
     }
 
     private static void logo() {
@@ -126,7 +156,7 @@ public class Snake_ladder_game {
             clip.open(audioInput);
             clip.start();
             
-           //JOptionPane.showMessageDialog(null,"Press OK to stop playing");
+            //JOptionPane.showMessageDialog(null,"Press OK to Exit Game");
             
         } else
         {
@@ -134,7 +164,7 @@ public class Snake_ladder_game {
         }
         
         }
-        catch(Exception e){
+        catch(Exception ex){
         
             
         
@@ -157,7 +187,9 @@ public class Snake_ladder_game {
             clip.open(audioInput);
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
-
+            
+     
+            
             //clip.stop();
             
         } else
@@ -166,7 +198,7 @@ public class Snake_ladder_game {
         }
         
         }
-        catch(Exception e){
+        catch(Exception ex){
         
             
         

@@ -13,7 +13,17 @@ import adt.LinkedStackInterface;
 public class Dice {
     private int diceNum;
     
-    
+    public Dice(int diceNum) {
+        this.diceNum = diceNum;
+    }
+
+    public int getDiceNum(){
+        return diceNum;
+    }
+
+    public void setDiceNum(int diceNum) {
+        this.diceNum = diceNum;
+    }
     public Dice() {
         roll();
     }
@@ -21,7 +31,7 @@ public class Dice {
     public void roll(){
         diceNum = (int)(Math.random()*6) + 1;
     }
-    
+  
     public int getDice(){
         return diceNum;
     }

@@ -16,8 +16,13 @@ public class Board_Layout {
     public static void Board_Layout() {
         System.out.println();
         System.out.println("========Snakes & Ladders========");
-        System.out.print("Enter anything to START the game: ");
-        scan.next().charAt(0);
+        System.out.print("Press ENTER to START the game: ");
+        try {
+            System.in.read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         board100();
     }
 

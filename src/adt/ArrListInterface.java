@@ -1,16 +1,21 @@
 package adt;
 
-
 public interface ArrListInterface<T> {
-    
-  public boolean add(T newItem);
-  
-  public boolean isEmpty();
 
-  public boolean isFull();
+    public boolean add(T newItem);
 
-  public int size();
+    public boolean isEmpty();
 
-  public T get(int i);
-    
+    public boolean isFull();
+
+    public int size();
+
+    public T remove(int givenPosition);
+
+    public void clear();
+
+    public boolean replace(int givenPosition, T newEntry);
+
+    public T get(int i);
+
 }

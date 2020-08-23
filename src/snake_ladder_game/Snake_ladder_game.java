@@ -35,15 +35,15 @@ public class Snake_ladder_game {
          String filepath = "src/music/BGM.wav";
         playBGM(filepath);
 
-        
         logo();
         leaderboardList = new DoublyLinkedList<>();
         Iterator<Leaderboard> display = leaderboardList.getIterator();
         playerList = new ArrList<>();
         playerQueue = new CircularArrQueue<>();
         Add_Player.addPlayer();
-
-        Add_Snake_Ladder.SorLTree();
+        
+        chooseDiff();
+        
         Board_Layout.Board_Layout();
         Sort_Ranking.createLeaderBoard();
 
@@ -203,6 +203,34 @@ public class Snake_ladder_game {
         }
       
     }
+     
+     private static void chooseDiff(){
+     
+      String line = "================================";
+      
+      System.out.println(line);
+      System.out.println("\tLevel of Difficulty");
+      System.out.println(line);
+      System.out.println("1. Normal");
+      System.out.println("2. Hard");
+      System.out.println("3. Nightmare");
+      System.out.println(line);
+      System.out.print("Please Choose The Level of Difficulty :");
+      int option = scan.nextInt();
+         
+       while ((option > 3) || (option < 1) ) 
+       {
+                System.out.println("\nPlease Enter 1 to 3 only !");
+                System.out.print("Please Choose The Level of Difficulty :");
+                option = scan.nextInt();
+                //System.out.println("");
+       }  
+      System.out.println(line);
+      
+      Add_Snake_Ladder.SorLTree(option);
+      
+     
+     }
     
 
 }

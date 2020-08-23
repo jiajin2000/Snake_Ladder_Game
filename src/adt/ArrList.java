@@ -8,7 +8,7 @@ public class ArrList<T> implements ArrListInterface<T> {
   private T[] array;
   private int length;
   private static final int DEFAULT_CAPACITY = 4;
-
+  
   public ArrList() {
     this(DEFAULT_CAPACITY);
   }
@@ -40,11 +40,53 @@ public class ArrList<T> implements ArrListInterface<T> {
     return length;
   }
   
+  public void clear() {
+    length = 0;
+  }
+  
   public T get(int index){
       
   if(index<0 || index>=this.length);
   return array[index];
   
+  }
+  
+  public boolean replace(int index, T newItem) {
+    boolean replaced = true;
+
+    if ((index >= 1) && (index <= length)) {
+      array[index - 1] = newItem;
+    } else {
+      replaced = false;
+    }
+
+    return replaced;
+  }
+  
+  public T remove(int index) {
+    T result = null;
+
+    if ((index >= 1) && (index <= length)) {
+      result = array[index - 1];
+
+      if (index < length) {
+        removeGap(index);
+      }
+
+      length--;
+    }
+
+    return result;
+  }
+  
+  private void removeGap(int position) {
+   
+    int removedIndex = position - 1;
+    int lastIndex = length - 1;
+
+    for (int index = removedIndex; index < lastIndex; index++) {
+      array[index] = array[index + 1];
+    }
   }
 
     public String toString() {

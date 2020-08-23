@@ -2,12 +2,13 @@ package entity;
 
 public class Player {
 
-    private static int nextNumber = 0;
+    public static int nextNumber = 0;
     private String name;
     private int number;
     private int currentPosition = 1;
     private int stepNumber;
-
+    private String id;
+    
     public Player(int number) {
         this.number = number;
     }
@@ -52,10 +53,15 @@ public class Player {
     public void setStepNumber(int stepNumber) {
         this.stepNumber = stepNumber;
     }
+    
+    public static void Reset() {
+        nextNumber = 0;
+    }
 
     @Override
     public String toString() {
-        return String.format("Player No. %-5d Player Name : %-20s\n", number + 1, name);
+        
+        return String.format("Player No. %-5d Player Name : %-20s\n", number +1 , name);
     }
 
 }

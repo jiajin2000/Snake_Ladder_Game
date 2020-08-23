@@ -91,8 +91,8 @@ public class Snake_ladder_game {
         System.out.println("   /  /:/\\:\\        \\  \\:\\    /  /:/  \\:\\                 / . .\\   ╬═╬");
         System.out.println("  /  /:/~/::\\   _____\\__\\:\\  /__/:/ \\__\\:|                \\  ---<  ╬═╬");
         System.out.println(" /__/:/ /:/\\:\\ /__/::::::::\\ \\  \\:\\ /  /:/                 \\  /    ╬═╬");
-        System.out.println(" \\  \\:\\/:/__\\/ \\  \\:\\~~\\~~\\/  \\  \\:\\  /:/        __________/ / \t   ╬═╬");
-        System.out.println("  \\  \\::/       \\  \\:\\  ~~~    \\  \\:\\/:/      -=:___________/ \t   ╬═╬");
+        System.out.println(" \\  \\:\\/:/__\\/ \\  \\:\\~~\\~~\\/  \\  \\:\\  /:/        __________/ /     ╬═╬");
+        System.out.println("  \\  \\::/       \\  \\:\\  ~~~    \\  \\:\\/:/      -=:___________/      ╬═╬");
         System.out.println("   \\  \\:\\        \\  \\:\\         \\  \\::/   ");
         System.out.println("    \\  \\:\\        \\  \\:\\         \\__\\/    ");
         System.out.println("     \\__\\/         \\__\\/                 ");
@@ -157,9 +157,7 @@ public class Snake_ladder_game {
             clip.open(audioInput);
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
-            
-     
-            
+
             //clip.stop();
             
         } else

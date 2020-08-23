@@ -75,7 +75,6 @@ public class Snake_ladder_game {
         playWinnerBGM(filepath);
         
         enterExit();
-        //playBGM.clip.stop();
         
     }
     
@@ -83,7 +82,7 @@ public class Snake_ladder_game {
     
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         while(true){
-            System.out.println("\nPress Enter Key to Exit Game n...");
+            System.out.println("\nPress Enter Key to Exit Game ...");
             String s = null;
             try {
                 s = br.readLine();

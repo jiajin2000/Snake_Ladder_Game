@@ -1,9 +1,6 @@
 package adt;
 
-/**
- *
- * @author kengboongoh
- */
+
 public interface ArrListInterface<T> {
     
   public boolean add(T newItem);

@@ -1,4 +1,5 @@
 package snake_ladder_game;
+
 import entity.Player;
 import adt.ArrList;
 import adt.CircularArrQueue;
@@ -8,26 +9,28 @@ import adt.DoublyLinkedList;
 import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
 import adt.CircularArrQueueInterface;
+import java.io.File;
 import java.util.*;
-import java.util.Random;
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JOptionPane;
 
 public class Snake_ladder_game {
 
-    /**
-     * @param args the command line arguments
-     */
-  static Scanner scan = new Scanner(System.in);
-  public static ArrListInterface<Player> playerList;
-  public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
-  public static CircularArrQueueInterface<Player> playerQueue;
-  public static BinarySearchTree startTree = new BinarySearchTree();
-  public static BinarySearchTree endTree = new BinarySearchTree();
-   
+    static Scanner scan = new Scanner(System.in);
+    public static ArrListInterface<Player> playerList;
+    public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
+    public static CircularArrQueueInterface<Player> playerQueue;
+    public static BinarySearchTree startTree = new BinarySearchTree();
+    public static BinarySearchTree endTree = new BinarySearchTree();
 
-  
     public static void main(String[] args) {
+
+        String filepath = "src/music/BGM.wav";
+        playBGM(filepath);
         
+        logo();
         leaderboardList = new DoublyLinkedList<>();
         Iterator<Leaderboard> display = leaderboardList.getIterator();
         playerList = new ArrList<>();
@@ -35,35 +38,143 @@ public class Snake_ladder_game {
         Add_Player.addPlayer();
 
         Add_Snake_Ladder.SorLTree();
-        //Add_Snake_Ladder.checkSorL();
-        //playerList.get(1).setCurrentPosition(4);
         Board_Layout.Board_Layout();
-        //Sort_Ranking.ranking();
-        //Queue_Player.queuePlayer();
-        
         Sort_Ranking.createLeaderBoard();
-        
+
         Queue_Player.queuePlayer();
        
-        while(!leaderboardList.getNth(0).isIsWinner()){
         
-
+        while (!leaderboardList.getNth(0).checkWinner()) {
+             
+             
             Queue_Player.round();
-           
+
             Board_Layout.board100();
-            
+
             Sort_Ranking.updateRanking();
- 
+
             Queue_Player.turnRound();
-        
+
         }
-        
+
         String winner = leaderboardList.getNth(0).getId();
+
+        System.out.println("Congratulation !!!  " + winner + " WIN THE GAME !!!");
         
-        System.out.println("Congratulation !!!  "+ winner + " WIN THE GAME !!!");
+        //playBGM.clip.stop();
         
-        //Board_Layout.displayBoard100();
+        filepath = "src/music/Kid_Cheers.wav";
+        
+        playWinnerBGM(filepath);
+        
+         
 
     }
+
+    private static void logo() {
+
+        System.out.println("      ___           ___           ___           ___           ___ ");
+        System.out.println("     /  /\\         /__/\\         /  /\\         /__/|         /  /\\");
+        System.out.println("    /  /:/_        \\  \\:\\       /  /::\\       |  |:|        /  /:/");
+        System.out.println("   /  /:/ /\\        \\  \\:\\     /  /:/\\:\\      |  |:|       /  /:/ /\\");
+        System.out.println("  /  /:/ /::\\   _____\\__\\:\\   /  /:/~/::\\   __|  |:|      /  /:/ /:/");
+        System.out.println(" /__/:/ /:/\\:\\ /__/::::::::\\ /__/:/ /:/\\:\\ /__/\\_|:|____ /__/:/ /:/ /\\");
+        System.out.println(" \\  \\:\\/:/~/:/ \\  \\:\\~~\\~~\\/ \\  \\:\\/:/__\\/ \\  \\:\\/:::::/ \\  \\:\\/:/ /:/");
+        System.out.println("  \\  \\::/ /:/   \\  \\:\\  ~~~   \\  \\::/       \\  \\::/~~~~   \\  \\::/ /:/");
+        System.out.println("   \\__\\/ /:/     \\  \\:\\        \\  \\:\\        \\  \\:\\        \\  \\:\\/:/");
+        System.out.println("     /__/:/       \\  \\:\\        \\  \\:\\        \\  \\:\\        \\  \\::/ ");
+        System.out.println("     \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/ \n");
+
+        System.out.println("      ___           ___          _____  ");
+        System.out.println("     /  /\\         /__/\\        /  /::\\   ");
+        System.out.println("    /  /::\\        \\  \\:\\      /  /:/\\:\\                   ____    ╬═╬");
+        System.out.println("   /  /:/\\:\\        \\  \\:\\    /  /:/  \\:\\                 / . .\\   ╬═╬");
+        System.out.println("  /  /:/~/::\\   _____\\__\\:\\  /__/:/ \\__\\:|                \\  ---<  ╬═╬");
+        System.out.println(" /__/:/ /:/\\:\\ /__/::::::::\\ \\  \\:\\ /  /:/                 \\  /    ╬═╬");
+        System.out.println(" \\  \\:\\/:/__\\/ \\  \\:\\~~\\~~\\/  \\  \\:\\  /:/        __________/ / \t   ╬═╬");
+        System.out.println("  \\  \\::/       \\  \\:\\  ~~~    \\  \\:\\/:/      -=:___________/ \t   ╬═╬");
+        System.out.println("   \\  \\:\\        \\  \\:\\         \\  \\::/   ");
+        System.out.println("    \\  \\:\\        \\  \\:\\         \\__\\/    ");
+        System.out.println("     \\__\\/         \\__\\/                 ");
+
+        System.out.println("                    ___          _____         _____          ___           ___     ");
+        System.out.println("                   /  /\\        /  /::\\       /  /::\\        /  /\\         /  /\\    ");
+        System.out.println("                  /  /::\\      /  /:/\\:\\     /  /:/\\:\\      /  /:/_       /  /::\\   ");
+        System.out.println("  ___     ___    /  /:/\\:\\    /  /:/  \\:\\   /  /:/  \\:\\    /  /:/ /\\     /  /:/\\:\\  ");
+        System.out.println(" /__/\\   /  /\\  /  /:/~/::\\  /__/:/ \\__\\:| /__/:/ \\__\\:|  /  /:/ /:/_   /  /:/~/:/  ");
+        System.out.println(" \\  \\:\\ /  /:/ /__/:/ /:/\\:\\ \\  \\:\\ /  /:/ \\  \\:\\ /  /:/ /__/:/ /:/ /\\ /__/:/ /:/___");
+        System.out.println("  \\  \\:\\  /:/  \\  \\:\\/:/__\\/  \\  \\:\\  /:/   \\  \\:\\  /:/  \\  \\:\\/:/ /:/ \\  \\:\\/:::::/");
+        System.out.println("   \\  \\:\\/:/    \\  \\::/        \\  \\:\\/:/     \\  \\:\\/:/    \\  \\::/ /:/   \\  \\::/~~~~ ");
+        System.out.println("    \\  \\::/      \\  \\:\\         \\  \\::/       \\  \\::/      \\  \\:\\/:/     \\  \\:\\     ");
+        System.out.println("     \\__\\/        \\  \\:\\         \\__\\/         \\__\\/        \\  \\::/       \\  \\:\\    ");
+        System.out.println("                   \\__\\/                                     \\__\\/         \\__\\/    \n");
+
+    }
+    
+    private static void playWinnerBGM(String filepath){
+    
+        
+        try
+        {
+            
+        File musicPath = new File(filepath);
+         
+        if(musicPath.exists()){
+            
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+            
+           //JOptionPane.showMessageDialog(null,"Press OK to stop playing");
+            
+        } else
+        {
+         System.out.println("Can't find file");
+        }
+        
+        }
+        catch(Exception e){
+        
+            
+        
+        }
+      
+    }
+    
+     private static void playBGM(String filepath){
+    
+        
+        try
+        {
+            
+        File musicPath = new File(filepath);
+         
+        if(musicPath.exists()){
+            
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            
+     
+            
+            //clip.stop();
+            
+        } else
+        {
+         System.out.println("Can't find file");
+        }
+        
+        }
+        catch(Exception e){
+        
+            
+        
+        }
+      
+    }
+    
 
 }

@@ -1,31 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
-import adt.DoublyLinkedList;
-import adt.DoublyLinkedListInterface;
-import java.util.Iterator;
 import java.util.Objects;
 
-/**
- *
- * @author Tan Chia Ter
- */
-public class Leaderboard implements Comparable <Leaderboard> {
-    private DoublyLinkedListInterface<Leaderboard> leaderboardList = new DoublyLinkedList<>();
+public class Leaderboard implements Comparable<Leaderboard> {
+
     private String id;
     private int score;
-    private static int rank = 1;
-    private boolean isWinner;
+    private boolean isWinner = false;
 
     public Leaderboard(String id) {
         this.id = id;
         this.score = 0;
     }
-    
+
     public Leaderboard(String id, int score) {
         this.id = id;
         this.score = score;
@@ -39,10 +26,13 @@ public class Leaderboard implements Comparable <Leaderboard> {
         return score;
     }
 
-    public boolean isIsWinner() {
-        return score == 100;
+    public boolean checkWinner() {
+        if (score == 100) {
+            isWinner = true;
+        }
+        return isWinner;
     }
-    
+
     public void setId(String id) {
         this.id = id;
     }
@@ -77,23 +67,18 @@ public class Leaderboard implements Comparable <Leaderboard> {
 
     @Override
     public int compareTo(Leaderboard o) {
-        if(score == o.score){
+        if (score == o.score) {
             return 0;
-        }
-        
-        else if(score < o.score){
+        } else if (score < o.score) {
             return -1;
-        }
-        
-        else{
+        } else {
             return 1;
         }
     }
-    
+
     @Override
-    public String toString(){
-        return String.format(" %-20s %-5d\n" , id, score);
+    public String toString() {
+        return String.format(" %-20s %-5d\n", id, score);
     }
-    
-    
+
 }

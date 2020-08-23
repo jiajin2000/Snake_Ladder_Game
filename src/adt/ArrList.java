@@ -1,12 +1,8 @@
 package adt;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
-/**
- *
- * @author kengboongoh
- */
+
+
 public class ArrList<T> implements ArrListInterface<T> {
     
   private T[] array;
@@ -51,9 +47,6 @@ public class ArrList<T> implements ArrListInterface<T> {
   
   }
 
-  
-
-  
     public String toString() {
     String output = "";
     for (int index = 0; index < length; ++index) {

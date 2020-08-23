@@ -1,6 +1,5 @@
 package adt;
 
-import entity.SorLSquare;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -53,23 +52,21 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
     return result;
   }
 
-  /**
-   * Task: Adds newEntry to the nonempty subtree rooted at rootNode.
-   */
+
   private T addEntry(Node rootNode, T newEntry) {
     T result = null;
     int comparison = newEntry.compareTo(rootNode.data);
 
-    if (comparison == 0) {						// newEntry matches entry in root
+    if (comparison == 0) {						
       result = rootNode.data;
       rootNode.data = newEntry;
-    } else if (comparison < 0) {				// newEntry < entry in root
+    } else if (comparison < 0) {				
       if (rootNode.left != null) {
         result = addEntry(rootNode.left, newEntry);
       } else {
         rootNode.left = new Node(newEntry);
       }
-    } else {														// newEntry > entry in root
+    } else {														
       if (rootNode.right != null) {
         result = addEntry(rootNode.right, newEntry);
       } else {
@@ -91,29 +88,20 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
     return oldEntry.get();
   }
 
-  /**
-   * Task: Removes an entry from the tree rooted at a given node.
-   *
-   * @param rootNode a reference to the root of a tree
-   * @param entry the object to be removed
-   * @param oldEntry an object whose data field is null
-   * @return the root node of the resulting tree; if entry matches an entry in
-   * the tree, oldEntry's data field is the entry that was removed from the
-   * tree; otherwise it is null
-   */
+
   private Node removeEntry(Node rootNode, T entry, ReturnObject oldEntry) {
     if (rootNode != null) {
       T rootData = rootNode.data;
       int comparison = entry.compareTo(rootData);
 
-      if (comparison == 0) {      // entry == root entry
+      if (comparison == 0) {     
         oldEntry.set(rootData);
         rootNode = removeFromRoot(rootNode);
-      } else if (comparison < 0) {  // entry < root entry
+      } else if (comparison < 0) { 
         Node leftChild = rootNode.left;
         Node subtreeRoot = removeEntry(leftChild, entry, oldEntry);
         rootNode.left = subtreeRoot;
-      } else {                      // entry > root entry
+      } else {                 
         Node rightChild = rootNode.right;
         rootNode.right = removeEntry(rightChild, entry, oldEntry);
       }
@@ -122,42 +110,32 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
     return rootNode;
   }
 
-  /**
-   * Task: Removes the entry in a given root node of a subtree.
-   *
-   * @param rootNode the root node of the subtree
-   * @return the root node of the revised subtree
-   */
+
   private Node removeFromRoot(Node rootNode) {
-    // Case 1: rootNode has two children
+  
     if (rootNode.left != null && rootNode.right != null) {
-      // find node with largest entry in left subtree
+    
       Node leftSubtreeRoot = rootNode.left;
       Node largestNode = findLargest(leftSubtreeRoot);
 
-      // replace entry in root
+     
       rootNode.data = largestNode.data;
 
-      // remove node with largest entry in left subtree
+     
       rootNode.left = removeLargest(leftSubtreeRoot);
-    } // end if
-    // Case 2: rootNode has at most one child
+    } 
+    
     else if (rootNode.right != null) {
       rootNode = rootNode.right;
     } else {
       rootNode = rootNode.left;
     }
 
-	  // Assertion: if rootNode was a leaf, it is now null
+	
     return rootNode;
   }
 
-  /**
-   * Task: Finds the node containing the largest entry in a given tree.
-   *
-   * @param rootNode the root node of the tree
-   * @return the node containing the largest entry in the tree
-   */
+  
   private Node findLargest(Node rootNode) {
     if (rootNode.right != null) {
       rootNode = findLargest(rootNode.right);
@@ -166,12 +144,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
     return rootNode;
   }
 
-  /**
-   * Task: Removes the node containing the largest entry in a given tree.
-   *
-   * @param rootNode the root node of the tree
-   * @return the root node of the revised tree
-   */
+
   private Node removeLargest(Node rootNode) {
     if (rootNode.right != null) {
       Node rightChild = rootNode.right;
@@ -208,8 +181,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
   }
 
 
-  // ReturnObject is the type for method removeEntry's 3rd parameter, oldEntry,
-  // which is used for returning the removed entry
+
   private class ReturnObject {
 
     private T item;

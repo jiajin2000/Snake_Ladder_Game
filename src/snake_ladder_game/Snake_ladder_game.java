@@ -72,7 +72,7 @@ public class Snake_ladder_game {
         
         filepath = "src/music/Kid_Cheers.wav";
         
-        playWinnerBGM(filepath);
+        playWinnerBGM(filepath); 
         
         enterExit();
         

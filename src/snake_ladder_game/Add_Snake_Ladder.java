@@ -27,7 +27,7 @@ public class Add_Snake_Ladder {
 
             startTree.add(SorLSquareList.get(i).getStartSquare());
 
-            endTree.add(SorLSquareList.get(i).getEndSquare());
+           // endTree.add(SorLSquareList.get(i).getEndSquare());
 
         }
 
@@ -45,9 +45,11 @@ public class Add_Snake_Ladder {
         SorLSquareList.add(new SorLSquare("Ladder", 30, 80));
 
         SorLSquareList.add(new SorLSquare("Snake", 50, 7));
-        SorLSquareList.add(new SorLSquare("Snake", 31, 20));
+        SorLSquareList.add(new SorLSquare("Snake", 60, 19));
         SorLSquareList.add(new SorLSquare("Snake", 78, 50));
         SorLSquareList.add(new SorLSquare("Snake", 90, 61));
+        SorLSquareList.add(new SorLSquare("Snake", 93, 34));
+        SorLSquareList.add(new SorLSquare("Snake", 97, 70));
 
     }
 
@@ -77,7 +79,7 @@ public class Add_Snake_Ladder {
 
         }
 
-        if (endTree.contains(currentPosition)) {
+        if (startTree.contains(currentPosition)) {
 
             for (int q = 0; q < SorLSquareList.size(); q++) {
 
@@ -86,8 +88,8 @@ public class Add_Snake_Ladder {
                 int endSquare = SorLSquareList.get(q).getEndSquare();
                 String type = SorLSquareList.get(q).getType();
 
-                if (position == endSquare && type == "Snake") {
-                    currentPosition = endSquare - 1;
+                if (position == startSquare && type == "Snake") {
+                    currentPosition = endSquare;
                     playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);
                     System.out.println("\n** Oh No ! The Snake is too Slippery, " + name + " slide from Position " + startSquare + " to " + endSquare + " **\n");
 
@@ -96,6 +98,8 @@ public class Add_Snake_Ladder {
             }
 
         }
+        
+        
 
     }
 

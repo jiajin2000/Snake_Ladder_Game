@@ -63,6 +63,17 @@ public class ArrList<T> implements ArrListInterface<T> {
     return replaced;
   }
   
+  public boolean contains(T item) {
+    boolean found = false;
+    for (int index = 0; !found && (index < length); index++) {
+      if (item.equals(array[index])) {
+        found = true;
+      }
+    }
+
+    return found;
+  }
+  
   public T remove(int index) {
     T result = null;
 

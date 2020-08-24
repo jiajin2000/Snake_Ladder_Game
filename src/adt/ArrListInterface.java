@@ -15,6 +15,8 @@ public interface ArrListInterface<T> {
     public void clear();
 
     public boolean replace(int givenPosition, T newEntry);
+    
+    public boolean contains(T item);
 
     public T get(int i);
 

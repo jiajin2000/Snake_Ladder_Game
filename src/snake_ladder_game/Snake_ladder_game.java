@@ -32,39 +32,47 @@ public class Snake_ladder_game {
 
     public static void main(String[] args) {
         
-         String filepath = "src/music/BGM.wav";
+        //Game's background music
+        String filepath = "src/music/BGM.wav";
         playBGM(filepath);
 
+        //Logo of the game
         logo();
+        
         leaderboardList = new DoublyLinkedList<>();
         playerList = new ArrList<>();
         playerQueue = new CircularArrQueue<>();
         
+        //Add the registed players into the array list named array list
         Add_Player.addPlayer();
        
-        chooseDiff();
+        //User should select the level of the game
+        chooseGameLevel();
         
+        //Display the layout of the board
         Board_Layout.Board_Layout();
+        //Add the players into sorted linked list and create the leaderboard of the game
         Sort_Ranking.createLeaderBoard();
+        //Add the players into the array queue in order to determine their order of throwing the dice
         Queue_Player.queuePlayer();
        
         
         while (!leaderboardList.getNth(0).checkWinner()) {
-             
+            //Display the name of the player of this round
             Queue_Player.round();
-
+            //Display updated board
             Board_Layout.board100();
-
+            //Display updated leaderboard
             Sort_Ranking.updateRanking();
-
+            //Pop the user out of the queue then insert back into the back of the queue
             Queue_Player.turnRound();
 
         }
         
     
-        
+       
         String winner = leaderboardList.getNth(0).getId();
-
+        //Display the winner of the game
         System.out.println("Congratulation !!!  " + winner + " WIN THE GAME !!!");
         
         filepath = "src/music/winning.wav";
@@ -202,7 +210,7 @@ public class Snake_ladder_game {
       
     }
      
-     private static void chooseDiff(){
+     private static void chooseGameLevel(){
      
       String line = "================================";
       

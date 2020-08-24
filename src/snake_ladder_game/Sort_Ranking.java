@@ -1,9 +1,6 @@
 package snake_ladder_game;
 
-import adt.DoublyLinkedList;
-import adt.DoublyLinkedListInterface;
 import entity.Leaderboard;
-import java.util.Iterator;
 import static snake_ladder_game.Snake_ladder_game.leaderboardList;
 import static snake_ladder_game.Snake_ladder_game.playerList;
 import static snake_ladder_game.Snake_ladder_game.playerQueue;

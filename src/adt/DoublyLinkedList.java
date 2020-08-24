@@ -106,7 +106,7 @@ public class DoublyLinkedList<T extends Comparable<T>> implements DoublyLinkedLi
 
     /**
      *
-     * @param index
+     * @param position
      * @return
      */
     @Override

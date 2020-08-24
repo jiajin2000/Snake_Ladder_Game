@@ -37,21 +37,19 @@ public class Snake_ladder_game {
 
         logo();
         leaderboardList = new DoublyLinkedList<>();
-        Iterator<Leaderboard> display = leaderboardList.getIterator();
         playerList = new ArrList<>();
         playerQueue = new CircularArrQueue<>();
-        Add_Player.addPlayer();
         
+        Add_Player.addPlayer();
+       
         chooseDiff();
         
         Board_Layout.Board_Layout();
         Sort_Ranking.createLeaderBoard();
-
         Queue_Player.queuePlayer();
        
         
         while (!leaderboardList.getNth(0).checkWinner()) {
-             
              
             Queue_Player.round();
 

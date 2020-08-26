@@ -8,6 +8,7 @@ import static snake_ladder_game.Snake_ladder_game.playerList;
 
 public class Add_Player {
 
+    // Add Player 
     public static void addPlayer() {
 
         String line = "================================";
@@ -19,6 +20,7 @@ public class Add_Player {
         Pattern pattern = Pattern.compile(regex);
         String data = "1";
 
+        // Enter Number of Player and Validation
         do {
             System.out.print("How Many Player for this Game ?(Min 2, Max 4):");
             while (!scan.hasNextInt()) {
@@ -35,40 +37,59 @@ public class Add_Player {
 
             System.out.print("Please Enter Player " + i + "'s Name  :");
             String name = scan.nextLine();
-                
-            
-            do{
-                
-            for (int y = 0; y < playerList.size(); y++) {
-                
-                 while ((name.length() > 3)) {
-                    System.out.println("\nMaximum Length of Player's Name is 3 !\n");
-                    System.out.print("Please Enter Player " + i + "'s Name  :");
-                    name = scan.nextLine();
-                    System.out.println("");
+
+            do {
+
+                for (int y = 0; y < playerList.size(); y++) {
+
+                    //check the length of entered name 
+                    while ((name.length() > 3)) {
+                        System.out.println("\nMaximum Length of Player's Name is 3 !\n");
+                        System.out.print("Please Enter Player " + i + "'s Name  :");
+                        name = scan.nextLine();
+                        System.out.println("");
+
+                    }
+
+                    // check the entered name with exists name
+                    while (playerList.get(y).getPlayerName().equals(name)) {
+                        System.out.println("\nThe Name Already Been Taken !\n");
+                        System.out.print("Please Enter Player " + i + "'s Name  :");
+                        name = scan.nextLine();
+                        System.out.println("");
+                    }
 
                 }
 
-                while(playerList.get(y).getPlayerName().equals(name)){
-                    System.out.println("\nThe Name Already Been Taken !\n");
-                    System.out.print("Please Enter Player " + i + "'s Name  :");
-                    name = scan.nextLine();
-                    System.out.println("");
-                }
-                
-             }
-            
-            }while((name.length() > 3));
+                for (int q = 0; q < playerList.size(); q++) {
 
+                    while ((name.length() > 3)) {
+                        System.out.println("\nMaximum Length of Player's Name is 3 !\n");
+                        System.out.print("Please Enter Player " + i + "'s Name  :");
+                        name = scan.nextLine();
+                        System.out.println("");
+
+                    }
+
+                    while (playerList.get(q).getPlayerName().equals(name)) {
+                        System.out.println("\nThe Name Already Been Taken !\n");
+                        System.out.print("Please Enter Player " + i + "'s Name  :");
+                        name = scan.nextLine();
+                        System.out.println("");
+                    }
+
+                }
+
+            } while ((name.length() > 3));
 
             playerList.add(new Player(name));
 
         }
 
         System.out.println("");
-        
+
         confirmPlayer();
-        
+
         System.out.println("");
         System.out.println("");
         System.out.println(line);
@@ -76,53 +97,53 @@ public class Add_Player {
         System.out.println(playerList.toString());
 
     }
-    
-    private static void confirmPlayer(){
-     
-     String line = "================================";
-         
-     System.out.println(line);
-     System.out.println(playerList.toString());
-     System.out.println(line);
-     System.out.println("1. Confirm and Start");
-     System.out.println("2. Player Rename");
-     System.out.println("3. Reset All Player");
-     System.out.println(line);
-     System.out.print("Please Select Your Option :");
-     int option = scan.nextInt();
-     
-     while ((option > 3) || (option < 1) ) 
-       {
-                System.out.println("\nPlease Enter 1 to 3 only !");
-                System.out.print("Please Select Your Option :");
-                option = scan.nextInt();
-              
-       }  
-     System.out.println(line);
-     
-     if(option == 3){
-     
-        playerList.clear();
-     
-        int num = 0;
-        Player.Reset();
 
-        addPlayer();
-        
-     }else if(option == 2){
+    // confirm player which allow user to rename or reset 
+    private static void confirmPlayer() {
 
-         editPlayer();
-     
-    }else
-    {
+        String line = "================================";
+
+        System.out.println(line);
+        System.out.println(playerList.toString());
+        System.out.println(line);
+        System.out.println("1. Confirm and Start");
+        System.out.println("2. Player Rename");
+        System.out.println("3. Reset All Player");
+        System.out.println(line);
+        System.out.print("Please Select Your Option :");
+        int option = scan.nextInt();
+
+        while ((option > 3) || (option < 1)) {
+            System.out.println("\nPlease Enter 1 to 3 only !");
+            System.out.print("Please Select Your Option :");
+            option = scan.nextInt();
+
+        }
+        System.out.println(line);
+
+        if (option == 3) {
+
+            playerList.clear();
+
+            int num = 0;
+            Player.reset();
+
+            addPlayer();
+
+        } else if (option == 2) {
+
+            editPlayer();
+
+        } else {
+
+        }
 
     }
-     
-    }
-    
-    private static void editPlayer(){
-      
-     int option;
+
+    // rename specific player
+    private static void editPlayer() {
+
+        int option;
 
         String regex = "\\d+";
         Pattern pattern = Pattern.compile(regex);
@@ -136,21 +157,20 @@ public class Add_Player {
                 scan.next(); // this is important!
             }
             option = scan.nextInt();
-           
-            
+
             data = Integer.toString(option);
-        } while ( option < 1 || option > playerList.size() || (pattern.matcher(data).matches() == false));
-        
-      String clear = scan.nextLine();
-       
-      System.out.print("Please Enter Player " + option + "'s New Name  :");
-            String name = scan.nextLine();
-            
-            do{
-                
-                 for (int y = 0; y < playerList.size(); y++) {
-                
-                 while ((name.length() > 3)) {
+        } while (option < 1 || option > playerList.size() || (pattern.matcher(data).matches() == false));
+
+        String clear = scan.nextLine();
+
+        System.out.print("Please Enter Player " + option + "'s New Name  :");
+        String name = scan.nextLine();
+
+        do {
+
+            for (int y = 0; y < playerList.size(); y++) {
+
+                while ((name.length() > 3)) {
                     System.out.println("\nMaximum Length of Player's Name is 3 !\n");
                     System.out.print("Please Enter Player " + option + "'s New Name  :");
                     name = scan.nextLine();
@@ -158,23 +178,24 @@ public class Add_Player {
 
                 }
 
-                while(playerList.get(y).getPlayerName().equals(name)){
+                while (playerList.get(y).getPlayerName().equals(name)) {
                     System.out.println("\nThe Name Already Been Taken !\n");
                     System.out.print("Please Enter Player " + option + "'s  New Name  :");
                     name = scan.nextLine();
                     System.out.println("");
+
                 }
-                
-             }
-                
 
-            }while((name.length() > 3));
-            
+            }
 
-            playerList.get(option-1).setPlayerName(name);
-            
-            confirmPlayer();
-    
+            System.out.println(playerList.contains(new Player(name)));
+
+        } while ((name.length() > 3) || playerList.contains(new Player(name)));
+
+        playerList.get(option - 1).setPlayerName(name);
+
+        confirmPlayer();
+
     }
 
 }

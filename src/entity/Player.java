@@ -54,6 +54,7 @@ public class Player {
         this.stepNumber = stepNumber;
     }
     
+    // reset the plater length
     public static void reset() {
         nextNumber = 0;
     }

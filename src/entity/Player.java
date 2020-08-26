@@ -54,7 +54,7 @@ public class Player {
         this.stepNumber = stepNumber;
     }
     
-    public static void Reset() {
+    public static void reset() {
         nextNumber = 0;
     }
 

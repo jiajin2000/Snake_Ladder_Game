@@ -38,18 +38,19 @@ public class Add_Player {
             System.out.print("Please Enter Player " + i + "'s Name  :");
             String name = scan.nextLine();
 
-            do {
-
-                for (int y = 0; y < playerList.size(); y++) {
-
-                    //check the length of entered name 
-                    while ((name.length() > 3)) {
+            do{
+                
+                  //check the length of entered name 
+                  while ((name.length() > 3)) {
                         System.out.println("\nMaximum Length of Player's Name is 3 !\n");
                         System.out.print("Please Enter Player " + i + "'s Name  :");
                         name = scan.nextLine();
                         System.out.println("");
 
                     }
+
+                for (int y = 0; y < playerList.size(); y++) {
+
 
                     // check the entered name with exists name
                     while (playerList.get(y).getPlayerName().equals(name)) {
@@ -61,24 +62,6 @@ public class Add_Player {
 
                 }
 
-                for (int q = 0; q < playerList.size(); q++) {
-
-                    while ((name.length() > 3)) {
-                        System.out.println("\nMaximum Length of Player's Name is 3 !\n");
-                        System.out.print("Please Enter Player " + i + "'s Name  :");
-                        name = scan.nextLine();
-                        System.out.println("");
-
-                    }
-
-                    while (playerList.get(q).getPlayerName().equals(name)) {
-                        System.out.println("\nThe Name Already Been Taken !\n");
-                        System.out.print("Please Enter Player " + i + "'s Name  :");
-                        name = scan.nextLine();
-                        System.out.println("");
-                    }
-
-                }
 
             } while ((name.length() > 3));
 
@@ -168,15 +151,15 @@ public class Add_Player {
 
         do {
 
-            for (int y = 0; y < playerList.size(); y++) {
-
-                while ((name.length() > 3)) {
+             while ((name.length() > 3)) {
                     System.out.println("\nMaximum Length of Player's Name is 3 !\n");
                     System.out.print("Please Enter Player " + option + "'s New Name  :");
                     name = scan.nextLine();
                     System.out.println("");
 
                 }
+             
+            for (int y = 0; y < playerList.size(); y++) {
 
                 while (playerList.get(y).getPlayerName().equals(name)) {
                     System.out.println("\nThe Name Already Been Taken !\n");

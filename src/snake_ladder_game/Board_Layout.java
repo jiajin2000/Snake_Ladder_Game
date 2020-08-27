@@ -47,15 +47,16 @@ public class Board_Layout {
         }
 
         for (int i = 0; i < Snake_ladder_game.playerList.size(); i++) {
-            String boardNo;
-
-            int position = Snake_ladder_game.playerList.get(i).getCurrentPosition();
+            
+            String boardSquare;
+            int playerPosition = Snake_ladder_game.playerList.get(i).getCurrentPosition();
             String positionInString = Integer.toString(Snake_ladder_game.playerList.get(i).getCurrentPosition());
-            boardNo = boardList.get(Snake_ladder_game.playerList.get(i).getCurrentPosition() - 1).getBoardSquare();
-            if (boardNo.equals(positionInString) == true || boardNo == "Snake" || boardNo == "Ladder") {
-                boardList.replace(position, new Board("*" + Snake_ladder_game.playerList.get(i).getPlayerName() + "*"));
+            
+            boardSquare = boardList.get(Snake_ladder_game.playerList.get(i).getCurrentPosition() - 1).getBoardSquare();
+            if (boardSquare.equals(positionInString) == true || boardSquare == "Snake" || boardSquare == "Ladder") {
+                boardList.replace(playerPosition, new Board("*" + Snake_ladder_game.playerList.get(i).getPlayerName() + "*"));
             } else {
-                boardList.replace(position, new Board(boardList.get(position - 1).getBoardSquare() + Snake_ladder_game.playerList.get(i).getPlayerName() + "*"));
+                boardList.replace(playerPosition, new Board(boardList.get(playerPosition - 1).getBoardSquare() + Snake_ladder_game.playerList.get(i).getPlayerName() + "*"));
             }
         }
     }

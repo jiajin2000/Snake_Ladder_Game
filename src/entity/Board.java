@@ -4,8 +4,8 @@ public class Board {
 
     private String boardSquare;
 
-    public Board(String boardNo) {
-        this.boardSquare = boardNo;
+    public Board(String boardSquare) {
+        this.boardSquare = boardSquare;
     }
 
     public String getBoardSquare() {

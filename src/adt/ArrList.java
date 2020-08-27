@@ -74,31 +74,6 @@ public class ArrList<T> implements ArrListInterface<T> {
     return found;
   }
   
-  public T remove(int index) {
-    T result = null;
-
-    if ((index >= 1) && (index <= length)) {
-      result = array[index - 1];
-
-      if (index < length) {
-        removeGap(index);
-      }
-
-      length--;
-    }
-
-    return result;
-  }
-  
-  private void removeGap(int position) {
-   
-    int removedIndex = position - 1;
-    int lastIndex = length - 1;
-
-    for (int index = removedIndex; index < lastIndex; index++) {
-      array[index] = array[index + 1];
-    }
-  }
 
     public String toString() {
     String output = "";

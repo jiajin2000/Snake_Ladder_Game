@@ -10,8 +10,6 @@ public interface ArrListInterface<T> {
 
     public int size();
 
-    public T remove(int givenPosition);
-
     public void clear();
 
     public boolean replace(int givenPosition, T newEntry);

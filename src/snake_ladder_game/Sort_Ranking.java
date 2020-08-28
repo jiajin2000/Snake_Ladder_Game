@@ -15,13 +15,21 @@ public class Sort_Ranking {
 
         String name = playerList.get(playerQueue.getFront().getNumber()).getPlayerName();
         int newPosition = playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition();
-        leaderboardList.remove(new Leaderboard(name));
-        leaderboardList.add(new Leaderboard(name, newPosition));
-
-        System.out.println(line + "\n\t  Leaderboard\n" + line);
-        System.out.println(layout);
-        System.out.println(line2);
-        System.out.println(leaderboardList.toString());
+        if(leaderboardList.remove(new Leaderboard(name))){
+            if(leaderboardList.add(new Leaderboard(name, newPosition))){
+                System.out.println(line + "\n\t  Leaderboard\n" + line);
+                System.out.println(layout);
+                System.out.println(line2);
+                System.out.println(leaderboardList.toString());
+            }
+            else{
+                System.out.println("*1.Unable to retrieve the leaderboard");
+            }
+        }
+        else{
+            System.out.println("*2.Unable to retrieve the leaderboard");
+        }
+        
 
     }
 

@@ -1,8 +1,5 @@
 package entity;
 
-import adt.LinkedStack;
-import adt.LinkedStackInterface;
-
 public class Dice {
 
     private int diceNum;

@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.Objects;
+import static snake_ladder_game.Snake_ladder_game.TOTAL_BOARD_SQUARE;
 
 public class Leaderboard implements Comparable<Leaderboard> {
 
@@ -27,7 +28,7 @@ public class Leaderboard implements Comparable<Leaderboard> {
     }
 
     public boolean checkWinner() {
-        if (score == 100) {
+        if (score == TOTAL_BOARD_SQUARE) {
             isWinner = true;
         }
         return isWinner;

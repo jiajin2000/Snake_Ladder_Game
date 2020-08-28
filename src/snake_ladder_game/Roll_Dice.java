@@ -5,6 +5,7 @@ import adt.LinkedStackInterface;
 import entity.Dice;
 import java.util.Scanner;
 import static snake_ladder_game.Add_Snake_Ladder.checkSorL;
+import static snake_ladder_game.Snake_ladder_game.TOTAL_BOARD_SQUARE;
 import static snake_ladder_game.Snake_ladder_game.playerList;
 import static snake_ladder_game.Snake_ladder_game.playerQueue;
 
@@ -100,9 +101,9 @@ public class Roll_Dice {
 
         int currentPosition = playerList.get(playerQueue.getFront().getNumber()).getCurrentPosition() + totalStep;
 
-        if (currentPosition > 100) {
+        if (currentPosition > TOTAL_BOARD_SQUARE) {
 
-            currentPosition = 100 - (currentPosition - 100);
+            currentPosition = TOTAL_BOARD_SQUARE - (currentPosition - TOTAL_BOARD_SQUARE);
         }
 
         playerList.get(playerQueue.getFront().getNumber()).setCurrentPosition(currentPosition);

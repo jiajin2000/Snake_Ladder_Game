@@ -2,11 +2,11 @@ package adt;
 
 import java.util.Iterator;
 
-public class DoublyLinkedList<T extends Comparable<T>> implements DoublyLinkedListInterface<T> {
+public class SortedDoublyLinkedList<T extends Comparable<T>> implements SortedDoublyLinkedListInterface<T> {
 
     private Node firstNode;
 
-    public DoublyLinkedList() {
+    public SortedDoublyLinkedList() {
         this.firstNode = null;
     }
 

@@ -5,8 +5,7 @@ import adt.ArrList;
 import adt.CircularArrQueue;
 import adt.ArrListInterface;
 import adt.BinarySearchTree;
-import adt.DoublyLinkedList;
-import adt.DoublyLinkedListInterface;
+import adt.SortedDoublyLinkedList;
 import entity.Leaderboard;
 import adt.CircularArrQueueInterface;
 
@@ -20,15 +19,17 @@ import javax.sound.sampled.Clip;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import adt.SortedDoublyLinkedListInterface;
 
 public class Snake_ladder_game {
 
     static Scanner scan = new Scanner(System.in);
     public static ArrListInterface<Player> playerList;
-    public static DoublyLinkedListInterface<Leaderboard> leaderboardList;
+    public static SortedDoublyLinkedListInterface<Leaderboard> leaderboardList;
     public static CircularArrQueueInterface<Player> playerQueue;
     public static BinarySearchTree startTree = new BinarySearchTree();
     public static BinarySearchTree endTree = new BinarySearchTree();
+    public static final int TOTAL_BOARD_SQUARE = 100;
 
     public static void main(String[] args) {
         
@@ -39,7 +40,7 @@ public class Snake_ladder_game {
         //Logo of the game
         logo();
         
-        leaderboardList = new DoublyLinkedList<>();
+        leaderboardList = new SortedDoublyLinkedList<>();
         playerList = new ArrList<>();
         playerQueue = new CircularArrQueue<>();
         

@@ -1,9 +1,9 @@
+
 package adt;
 
 import java.util.Iterator;
 
-public interface SortedDoublyLinkedListInterface<T extends Comparable<T>> {
-
+public interface SortedDoublyLinkedListInterface <T extends Comparable<T>> {
     public boolean add(T newEntry);
 
     public boolean remove(T currentEntry);
